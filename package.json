@@ -1,0 +1,29 @@
+{
+  "name": "powergrid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test/unit",
+    "start": "node index.js",
+    "start/dev": "nodemon index.js",
+    "start/prod": "pm2 apps.js",
+    "style/watch": "",
+    "docs/client": "",
+    "docs/client/open": "",
+    "docs/api": "",
+    "docs/api/open": "",
+    "analysis/client": "",
+    "analysis/client/open": "",
+    "analysis/api": "",
+    "analysis/api/open": "",
+    "test/unit": "",
+    "test/unit/watch": "",
+    "test/e2e": "",
+    "test/aat": "",
+    "test/api": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "WTFPL"
+}
