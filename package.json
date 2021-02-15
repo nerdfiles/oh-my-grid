@@ -1,7 +1,7 @@
 {
-  "name": "powergrid",
-  "version": "1.0.0",
-  "description": "",
+  "name": "oh-my-grid",
+  "version": "0.0.1",
+  "description": "Graph-based decision-making in case of power grid failures and certain humer error probability conditions.",
   "main": "index.js",
   "scripts": {
     "test": "test/unit",
@@ -24,6 +24,6 @@
     "test/api": ""
   },
   "keywords": [],
-  "author": "",
+  "author": "Aha Hah (aaron.alan.alexander@protonmail.com)",
   "license": "WTFPL"
 }
