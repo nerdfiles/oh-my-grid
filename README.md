@@ -1,4 +1,4 @@
-# Powergrid
+# oh-my-grid
 
 Pulling data from [energy-graph.com][1] to render in the relevant D3, C3 and Rickshaw graphs for supporting analysis of HEP (human error probability) in response to forms of power grid failure (cascading failures, etc.).
 
