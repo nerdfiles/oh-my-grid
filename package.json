@@ -21,7 +21,8 @@
     "test/unit/watch": "",
     "test/e2e": "",
     "test/aat": "",
-    "test/api": ""
+    "test/api": "",
+    "help": "npm run $(npm run | percol)"
   },
   "keywords": [],
   "author": "Aha Hah (aaron.alan.alexander@protonmail.com)",
