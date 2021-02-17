@@ -4,7 +4,7 @@
   "description": "Graph-based decision-making in case of power grid failures and certain humer error probability conditions.",
   "main": "index.js",
   "scripts": {
-    "test": "test/unit",
+    "test": "npm run test/unit",
     "start": "node index.js",
     "start/dev": "nodemon index.js",
     "start/prod": "pm2 apps.js",
@@ -22,7 +22,7 @@
     "test/e2e": "",
     "test/aat": "",
     "test/api": "",
-    "help": "help/nohup",
+    "help": "npm run help/nohup",
     "help/open": "npm run $(npm run | percol)",
     "install/help/nohup": "nohup $(npm run)",
     "help/nohup": "npm run $(cat nohup.out | percol)"
