@@ -4,12 +4,6 @@
  * @description
  */
 const express = require('express');
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const casl = require('casl')
-const seneca = require('seneca')
-const clusterluck = require('clusterluck')
-
 
 module.exports = ({ config, router, logger, auth }) => {
   const app = express();
