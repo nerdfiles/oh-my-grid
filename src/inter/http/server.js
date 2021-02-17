@@ -30,3 +30,4 @@ module.exports = ({ config, router, logger, auth }) => {
   };
 };
 
+// EOF
