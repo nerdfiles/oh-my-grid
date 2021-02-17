@@ -1,5 +1,5 @@
 /**
- * @name user
+ * @name feed
  * @module domain 
  */
 

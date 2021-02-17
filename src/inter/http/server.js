@@ -1,5 +1,6 @@
 /**
- * @module interfaces/http/server
+ * @name server
+ * @module interfaces/http
  * @description
  */
 const express = require('express');

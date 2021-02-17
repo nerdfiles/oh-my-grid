@@ -1,3 +1,7 @@
+/**
+ * @name resources
+ * @module interfaces/http
+ */
 const swaggerJSDoc = require('swagger-jsdoc');
 const Status = require('http-status');
 const { Router } = require('express');

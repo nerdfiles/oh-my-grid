@@ -1,6 +1,6 @@
 /**
  * @name router
- * @module interfaces/http/resources
+ * @module interfaces/http
  */
 const statusMonitor = require('express-status-monitor');
 const cors = require('cors');

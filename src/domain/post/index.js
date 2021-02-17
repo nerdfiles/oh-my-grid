@@ -1,5 +1,5 @@
 /**
- * @name user
+ * @name post
  * @module domain 
  */
 
