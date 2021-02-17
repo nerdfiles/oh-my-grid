@@ -22,7 +22,10 @@
     "test/e2e": "",
     "test/aat": "",
     "test/api": "",
-    "help": "npm run $(npm run | percol)"
+    "help": "help/nohup",
+    "help/open": "npm run $(npm run | percol)",
+    "install/help/nohup": "nohup $(npm run)",
+    "help/nohup": "npm run $(cat nohup.out | percol)"
   },
   "keywords": [],
   "author": "Aha Hah (aaron.alan.alexander@protonmail.com)",
