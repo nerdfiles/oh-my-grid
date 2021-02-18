@@ -26,7 +26,7 @@ container
     server: asFunction(server).singleton(),
     router: asFunction(router).singleton(),
     logger: asFunction(logger).singleton(),
-    db: asFunction(db).singleton(),
+    database: asFunction(database).singleton(),
     auth: asFunction(auth).singleton(),
     jwt: asFunction(jwt).singleton(),
     response: asFunction(response).singleton(),
