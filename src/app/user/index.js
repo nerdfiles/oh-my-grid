@@ -1,6 +1,17 @@
-const post = require('./post.js');
+/**
+ * @name user
+ * @module app
+ */
+const get = require('./get')
+const post = require('./post')
+const put = require('./put')
+const remove = require('./delete')
 
 module.exports = {
-  post
-};
+  get,
+  post,
+  put,
+  remove
+}
 
+// EOF
