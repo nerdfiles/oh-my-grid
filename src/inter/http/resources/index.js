@@ -12,9 +12,9 @@ module.exports = () => {
 
   const swaggerDefinition = {
     info: {
-      title: 'Medien API Explorer',
+      title: 'Oh My Grid API Explorer',
       version: process.env.APP_VERSION,
-      description: 'Available REST Endpoints of Medien RESTful API'
+      description: 'Available REST Endpoints of Oh My Grid RESTful API'
     },
     host: `${process.env.API_SWAGGER}:${process.env.PORT}/api/${process.env.APP_VERSION}`,
     basePath: '/',
