@@ -40,6 +40,7 @@ module.exports = ({ config, logger, db }) => {
         'GET', 
         'POST', 
         'PUT', 
+        'PATCH',
         'DELETE'
       ],
       allowedHeaders: [
@@ -53,6 +54,7 @@ module.exports = ({ config, logger, db }) => {
   apiRouter.use('/', create_controller('index'));
   apiRouter.use('/token', create_controller('token').router);
   apiRouter.use('/users', create_controller('user').router);
+  apiRouter.use('/places', create_controller('place').router);
 
   router.use(`/api`, apiRouter);
   router.use(`/api/${config.VERSION}`, apiRouter);
