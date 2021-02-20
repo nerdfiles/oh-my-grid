@@ -1,3 +1,7 @@
+/**
+ * @name user
+ * @module domain/user
+ */
 const t = require('tcomb');
 const { compose } = require('ramda');
 const { cleanData } = require('../helper.js');
@@ -26,3 +30,4 @@ module.exports = compose(
   User
 );
 
+// EOF

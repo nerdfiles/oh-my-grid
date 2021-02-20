@@ -1,4 +1,5 @@
-const firebase = require('src/infra/vendor/firebase');
+//const firebase = require('src/infra/vendor/firebase');
+const firebase = require('../vendor/firebase');
 
 module.exports = ({ logger, config }) => {
   if (!config.db) {

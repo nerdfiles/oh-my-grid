@@ -2,7 +2,7 @@
  * @name start
  * @module base
  */
-const container = require('src/container');
+const container = require('./src/container');
 const app = container.resolve('app');
 
 
