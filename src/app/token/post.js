@@ -1,6 +1,6 @@
 /**
- * @name
- * @module
+ * @name post
+ * @module app/token
  */
 const token = require('src/domain/token');
 module.exports = function ({ token }) {
@@ -15,3 +15,5 @@ module.exports = function ({ token }) {
     el
   };
 };
+
+// EOF
