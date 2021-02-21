@@ -2,8 +2,8 @@
  * @name instance
  * @module interfaces/http/resources/user
  */
-const container = require('src/container');
-const { post } = require('src/app/user');
+const container = require('../../../../container');
+const { post } = require('../../../../app/user');
 
 
 module.exports = () => {

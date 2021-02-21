@@ -2,7 +2,7 @@
  * @name user
  * @module interfaces/http/resources
  */
-const container = require('src/container');
+const container = require('../../../../container');
 const instance = require('./instance');
 const router = require('./router.js');
 

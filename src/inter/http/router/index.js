@@ -14,7 +14,7 @@ const { create_controller } = require('../utils');
 const httpLogger = require('../middleware/http-logger');
 const errorHandler = require('../middleware/exception');
 
-module.exports = ({ config, logger, db }) => {
+module.exports = ({ config, logger, database }) => {
   const router = Router();
 
   /* istanbul ignore if */
@@ -52,9 +52,7 @@ module.exports = ({ config, logger, db }) => {
     .use(compression());
 
   apiRouter.use('/', create_controller('index'));
-  apiRouter.use('/token', create_controller('token').router);
   apiRouter.use('/users', create_controller('user').router);
-  apiRouter.use('/places', create_controller('place').router);
 
   router.use(`/api`, apiRouter);
   router.use(`/api/${config.VERSION}`, apiRouter);

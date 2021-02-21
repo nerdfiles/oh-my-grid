@@ -4,7 +4,7 @@
  * @description
  * this file will hold all the get use-case for user domain
  */
-const { User } = require('src/domain/user');
+const { User } = require('../../domain/user');
 
 /**
  * function for getter user.

@@ -2,7 +2,7 @@
  * @name post
  * @module app/user
  */
-const { User } = require('src/domain/user');
+const { User } = require('../../domain/user');
 
 
 module.exports = ({ userRepository }) => {
