@@ -1,11 +1,12 @@
 # oh-my-grid
 
-Pulling data from [energy-graph.com][1] to render in the relevant D3, C3 and Rickshaw graphs for supporting analysis of HEP (human error probability) in response to forms of power grid failure (cascading failures, etc.).
+Pulling data from [Energy Information Administration][1] to render in the relevant D3, C3 and Rickshaw graphs for supporting analysis of HEP (human error probability) in response to forms of power grid failure (cascading failures, etc.).
 
-## Regions
+## API
 
-1. [West][2]
-2. [East][3]
+Some examples:
+
+1. http://api.eia.gov/series/?series_id=ELEC.GEN.ALL-AK-99.A&api_key={API_KEY}[&num=][&out=xml|json]
 
 ## Strategy
 
@@ -21,6 +22,4 @@ The "backend", what provides the API, database, encryption tools, loggin, and ot
 
 1. Implement DARRT for resource/modules and actions on repositories.
 
-[1]: http://energy-graph.com
-[2]: http://energy-graph.com/?Map_Large_Generator_West
-[3]: http://energy-graph.com/?Map_Large_Generator_East
+[1]: https://www.eia.gov/opendata/
