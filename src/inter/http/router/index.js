@@ -10,7 +10,7 @@ const compression = require('compression');
 const { Router } = require('express');
 const { partialRight } = require('ramda');
 
-const { create_controller } = require('../utils');
+const { createController } = require('../utils');
 const httpLogger = require('../middleware/http-logger');
 const errorHandler = require('../middleware/exception');
 
@@ -51,8 +51,8 @@ module.exports = ({ config, logger, database }) => {
     .use(bodyParser.json())
     .use(compression());
 
-  apiRouter.use('/', create_controller('index'));
-  apiRouter.use('/users', create_controller('user').router);
+  apiRouter.use('/', createController('index'));
+  apiRouter.use('/users', createController('user').router);
 
   router.use(`/api`, apiRouter);
   router.use(`/api/${config.VERSION}`, apiRouter);

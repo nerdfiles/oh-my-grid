@@ -2,10 +2,10 @@
  * @name utils
  * @module interfaces/http
  */
-const create_controller = require('./create-controller');
+const createController = require('./create-controller');
 
 module.exports = {
-  create_controller
+  createController
 };
 
 // EOF
