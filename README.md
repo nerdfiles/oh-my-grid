@@ -17,6 +17,10 @@ This will be a monolithic codebase, but likely broken down into submodules. Fron
 
 The "backend", what provides the API, database, encryption tools, loggin, and other capabilities will follow a domain-driven architectural style (DDD, DDA, etc.), based on Domain-driven Design (E. Evans) to support reactive and non-reactive (REST-ful) services. CQRS may be implemented to support messaging or communications capabilities, if they are deemed necessary for the utility of the application.
 
+## TODO
+
+1. Implement DARRT for resource/modules and actions on repositories.
+
 [1]: http://energy-graph.com
 [2]: http://energy-graph.com/?Map_Large_Generator_West
 [3]: http://energy-graph.com/?Map_Large_Generator_East
