@@ -9,10 +9,10 @@
     "start/dev": "nodemon index.js",
     "start/prod": "pm2 apps.js",
     "style/watch": "",
-    "docs/client": "",
-    "docs/client/open": "",
-    "docs/api": "",
-    "docs/api/open": "",
+    "docs/client": "jsdoc -d docs/client -r src/client/src -c docs.client.conf.json",
+    "docs/client/open": "open docs/client/index.html",
+    "docs/api": "jsdoc -d docs/api -r src/app src/container src/domain src/infra src/inter -c docs.api.conf.json",
+    "docs/api/open": "open docs/api/index.html",
     "analysis/client": "",
     "analysis/client/open": "",
     "analysis/api": "",
@@ -52,5 +52,8 @@
     "tcomb": "^3.2.29",
     "winston": "^3.3.3",
     "wolkenkit": "^3.1.2"
+  },
+  "devDependencies": {
+    "better-docs": "^2.3.2"
   }
 }
