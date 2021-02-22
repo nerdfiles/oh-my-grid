@@ -5,12 +5,11 @@
  */
 const express = require('express');
 
-module.exports = ({ config, router, logger, auth, apiService }) => {
+module.exports = ({ config, router, logger, auth }) => {
   const app = express();
 
   app.disable('x-powered-by');
   app.use(auth.initialize());
-  app.use(apiService);
   app.use(router);
 
   app.use(express.static('public'));

@@ -12,7 +12,7 @@ const { partialRight } = require('ramda');
 
 const { createController } = require('../utils');
 const httpLogger = require('../middleware/http-logger');
-const errorHandler = require('../middleware/exception');
+const errorHandler = require('../middleware/error-handler');
 
 module.exports = ({ config, logger, database }) => {
   const router = Router();
