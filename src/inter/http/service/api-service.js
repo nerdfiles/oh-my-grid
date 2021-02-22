@@ -20,7 +20,6 @@ module.exports = ({ config }) => {
   };
   return function () {
     return {
-      API_KEY,
       reply: reply
     }
   }

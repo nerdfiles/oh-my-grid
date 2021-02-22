@@ -3,7 +3,7 @@
  * @module interfaces/http/resources/user
  */
 const container = require('../../../../container');
-const { post } = require('../../../../app/user');
+const { post, get } = require('../../../../app/user');
 
 
 module.exports = () => {
@@ -13,12 +13,14 @@ module.exports = () => {
     },
     apiService
   } = container.cradle;
-  //console.log(apiService().API_KEY)
+  const reply = apiService().reply;
 
-  const postUseCase = post({ userRepository, reply: apiService().reply });
+  const postUseCase = post({ userRepository, reply: reply });
+  const getUseCase = get({ userRepository });
 
   return {
-    postUseCase
+    postUseCase,
+    getUseCase
   };
 };
 

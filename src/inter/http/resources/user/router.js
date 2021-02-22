@@ -9,8 +9,6 @@ const { Router } = require('express');
 module.exports = ({
   getUseCase,
   postUseCase,
-  putUseCase,
-  deleteUseCase,
   logger,
   auth,
   response: { Success, Fail }
@@ -42,6 +40,19 @@ module.exports = ({
  *         format: uuid
  */
   router.use(auth.authenticate());
+
+  router
+    .get('/', (req, res) => {
+      getUseCase.all().then(function (data) {
+        res.status(Status.OK).json(Success(data));
+      })
+      .catch((error) => {
+        logger.error(error);
+        res
+          .status(Status.BAD_REQUEST)
+          .json(Fail(error.message));
+      });
+    })
 
 /**
  * @swagger
