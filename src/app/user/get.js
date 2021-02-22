@@ -1,4 +1,9 @@
 /**
+ * @name get
+ * @module app/user
+ * @description
+ */
+/**
   * function for getter user.
   */
 module.exports = ({ userRepository }) => {
