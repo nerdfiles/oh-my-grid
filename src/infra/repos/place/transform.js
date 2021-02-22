@@ -1,7 +1,7 @@
 /**
  * @name transform
  * @module infrastructure/repositories/place
- *
+ * @description
  * The thing about the transformation here is that it must link to the interface 
  * that supports hypermedia affordances. Here we want to present to the user all 
  * the geographical controls to manipulate a world-historical map. Amundsen developed
