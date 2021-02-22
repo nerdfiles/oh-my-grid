@@ -4,7 +4,10 @@
  */
 
 module.exports = ({ config }) => {
-  console.log(config.API_KEY);
+  const API_KEY = config.API_KEY;
+  return {
+    API_KEY
+  };
 };
 
 // EOF

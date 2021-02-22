@@ -9,6 +9,7 @@ const app = require('../app');
 const server = require('../inter/http/server');
 const router = require('../inter/http/router');
 const auth = require('../inter/http/security/authn');
+const apiService = require('../inter/http/service/api-service');
 const config = require('../../config');
 const logger = require('../infra/logging');
 const database = require('../infra/database');
@@ -32,7 +33,8 @@ container
     response: asFunction(response).singleton(),
     date: asFunction(date).singleton(),
     config: asValue(config),
-    repository: asFunction(repository).singleton()
+    repository: asFunction(repository).singleton(),
+    apiService: asValue(apiService)
   });
 
 module.exports = container;
