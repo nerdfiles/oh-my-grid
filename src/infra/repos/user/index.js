@@ -1,6 +1,6 @@
 /**
- * @name user
- * @module infrastructure/repositories
+ * @name index
+ * @module infrastructure/repositories/user
  */
 const { toEntity } = require('./transform');
 const { comparePassword } = require('../../encryption');
