@@ -1,6 +1,7 @@
 /**
  * @name delete
  * @module app/user
+ * @description
  * function for user.
  */
 module.exports = ({ userRepository }) => {

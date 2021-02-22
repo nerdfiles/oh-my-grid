@@ -1,3 +1,7 @@
+/**
+ * @name environemtns
+ * @module config
+ */
 require('dotenv').load()
 
 const fs = require('fs');
