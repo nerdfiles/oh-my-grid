@@ -18,10 +18,12 @@ module.exports = ({ config }) => {
       resolve(cache[url].body);
     });
   };
-  return {
-    API_KEY,
-    reply: reply
-  };
+  return function () {
+    return {
+      API_KEY,
+      reply: reply
+    }
+  }
 };
 
 // EOF

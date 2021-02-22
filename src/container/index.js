@@ -34,7 +34,7 @@ container
     date: asFunction(date).singleton(),
     config: asValue(config),
     repository: asFunction(repository).singleton(),
-    apiService: asValue(apiService)
+    apiService: asFunction(apiService).singleton()
   });
 
 module.exports = container;

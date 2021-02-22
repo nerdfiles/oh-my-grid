@@ -5,7 +5,8 @@
 const { User } = require('../../domain/user');
 
 
-module.exports = ({ userRepository }) => {
+module.exports = ({ userRepository, reply }) => {
+  console.log(reply);
   const create = ({ body }) => {
     return Promise.resolve()
       .then(() => {
