@@ -35,9 +35,6 @@ module.exports = ({ userRepository, webToken }) => {
         resolve({
           token: signIn({
             id: userCredentials.id,
-            firstName: userCredentials.firstName,
-            lastName: userCredentials.lastName,
-            middleName: userCredentials.middleName,
             email: userCredentials.email
           })
         });
