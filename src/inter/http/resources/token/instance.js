@@ -1,14 +1,12 @@
 /**
  * @name instance
- * @module interfaces/http/resources
+ * @module interfaces/http/resources/token
  */
 const container = require('../../../../container');
 const { post } = require('../../../../app/token');
 
 module.exports = () => {
-  const { repository: {
-    userRepository
-  }, jwt } = container.cradle;
+  const { repository: { userRepository }, jwt } = container.cradle;
 
   const postUseCase = post({
     userRepository,

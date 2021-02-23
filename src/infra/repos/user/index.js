@@ -24,6 +24,9 @@ module.exports = ({ model, db }) => {
   const findById = async (...args) => 
     await model.where('id', '==', args.id).get();
 
+  const findByEmail = async (...args) =>
+    await model.where('email', '==', args.email).get();
+
   const findOne = async (...args) =>
     await model.limit(1).get();
 
@@ -38,6 +41,7 @@ module.exports = ({ model, db }) => {
     create,
     update,
     findById,
+    findByEmail,
     findOne,
     validatePassword,
     destroy

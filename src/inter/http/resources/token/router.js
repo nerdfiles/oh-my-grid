@@ -5,11 +5,7 @@
 const Status = require('http-status');
 const { Router } = require('express');
 
-module.exports = ({
-  postUseCase,
-  logger,
-  response: { Success, Fail }
-}) => {
+module.exports = ({ postUseCase, logger, response: { Success, Fail } }) => {
   const router = Router();
 
 /**

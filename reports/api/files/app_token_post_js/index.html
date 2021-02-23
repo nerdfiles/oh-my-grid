@@ -51,7 +51,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
-      <p class="stat">55</p>
+      <p class="stat">56</p>
     </div>
   </div>
   <div class="row historical">
@@ -107,16 +107,17 @@ module.exports = ({ userRepository, webToken }) =&gt; {
   const validate = ({ body }) =&gt; {
     return new Promise(async (resolve, reject) =&gt; {
       try {
-        const credentials = Token(body)
-        const userCredentials = await userRepository.findOne({
+        const credentials = Token(body);
+        const userCredentials = await userRepository.findByEmail({
           attributes: [
-            &#039;id&#039;, &#039;firstName&#039;, &#039;lastName&#039;, &#039;middleName&#039;, &#039;email&#039;, &#039;password&#039;, &#039;roleId&#039;, &#039;isDeleted&#039;, &#039;createdBy&#039;
+            &#039;id&#039;, &#039;firstName&#039;, &#039;lastName&#039;, &#039;middleName&#039;, &#039;email&#039;, &#039;password&#039;, 
+            &#039;roleId&#039;, &#039;isDeleted&#039;, &#039;createdBy&#039;
           ],
           where: {
             email: credentials.email,
             isDeleted: 0
           }
-        })
+        });
 
         const validatePass = userRepository.validatePassword(userCredentials.password);
 

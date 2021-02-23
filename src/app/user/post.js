@@ -6,7 +6,6 @@ const { User } = require('../../domain/user');
 
 
 module.exports = ({ userRepository, reply }) => {
-  console.log(reply);
   const create = ({ body }) => {
     return Promise.resolve()
       .then(() => {
@@ -15,6 +14,12 @@ module.exports = ({ userRepository, reply }) => {
           password
         });
         const user = User(entity);
+        reply().then(function (res) {
+          console.log(res);
+        })
+        .catch(function (err) {
+          console.log({err});
+        });
         return userRepository.create(user);
       })
       .catch((error) => {

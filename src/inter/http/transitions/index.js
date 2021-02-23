@@ -1,5 +1,5 @@
 /**
- * @name transformations
+ * @name transitions
  * @module interfaces/http
  */
 /*****************************************
