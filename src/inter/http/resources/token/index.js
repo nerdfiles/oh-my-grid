@@ -1,4 +1,4 @@
-const container = require('src/container');
+const container = require('../../../../container');
 const router = require('./router');
 const instance = require('./instance');
 

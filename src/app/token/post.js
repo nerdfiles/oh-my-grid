@@ -2,7 +2,7 @@
  * @name post
  * @module app/token
  */
-const Token = require('src/domain/token')
+const Token = require('../../domain/token')
 
 
 /**
