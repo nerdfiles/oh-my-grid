@@ -15,7 +15,7 @@ module.exports = () => {
   } = container.cradle;
   const reply = apiService().reply;
 
-  const postUseCase = post({ userRepository, reply: reply });
+  const postUseCase = post({ userRepository, reply });
   const getUseCase = get({ userRepository });
 
   return {

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - transitions/index.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>transitions/index.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">36.39</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">128</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">8.10</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.75</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">/**
+ * @name transformations
+ * @module interfaces/http
+ */
+/*****************************************
+// DARRT Framework
+// transitions
+// 2020-02-01 : mamund
+ *****************************************/
+ 
+ // page- and item-level forms
+exports.forms = {
+	pageForms: [
+		{
+		id:&quot;self&quot;,
+		name:&quot;self&quot;,
+		href:&quot;{fullurl}&quot;,
+		rel: &quot;self colllection api&quot;,
+		tags: &quot;collection api self home list item&quot;,
+		title: &quot;Self&quot;,
+		method: &quot;GET&quot;,
+		properties:[]
+		},
+		{
+			id:&quot;home&quot;,
+			name:&quot;home&quot;,
+			href:&quot;{fullhost}/&quot;,
+			rel: &quot;collection api&quot;,
+			tags: &quot;collection api home list item&quot;,
+			title: &quot;Home&quot;,
+			method: &quot;GET&quot;,
+			properties:[]
+		},
+		{
+			id:&quot;list&quot;,
+			name:&quot;list&quot;,
+			href:&quot;{fullhost}/list/&quot;,
+			rel:&quot;collection api&quot;,
+			tags:&quot;collection api home list item&quot;,
+			title:&quot;List&quot;,
+			method:&quot;GET&quot;,
+			properties:[]
+		},
+		{
+			id:&quot;filter&quot;,
+			name:&quot;filter&quot;,
+			href:&quot;{fullhost}/filter/&quot;,
+			rel:&quot;collection api filter&quot;,
+			tags:&quot;collection api filter list item&quot;,
+			title:&quot;Search&quot;,
+			method:&quot;GET&quot;,
+			properties:[
+				{name:&quot;status&quot;,value:&quot;&quot;},
+				{name:&quot;email&quot;,value:&quot;&quot;},
+				{name:&quot;familyName&quot;,value:&quot;&quot;}
+			]
+		},
+		{
+			id: &quot;create&quot;,
+			name: &quot;create&quot;,
+			href: &quot;{fullhost}/&quot;,
+			rel: &quot;create-form api&quot;,
+			tags: &quot;collection api list&quot;,
+			title: &quot;Create&quot;,
+			method: &quot;POST&quot;,
+			properties: [
+				{name:&quot;id&quot;,value:&quot;{makeid}&quot;},
+				{name:&quot;givenName&quot;,value:&quot;&quot;},
+				{name:&quot;familyName&quot;,value:&quot;&quot;},
+				{name:&quot;telephone&quot;,value:&quot;&quot;},
+				{name:&quot;email&quot;,value:&quot;&quot;},
+				{name:&quot;status&quot;,value:&quot;pending&quot;}
+			]
+		}
+	],
+	itemForms: [
+		{
+			id:&quot;read_{id}&quot;,
+			name: &quot;read&quot;,
+			href: &quot;{fullhost}/{id}&quot;,
+			rel: &quot;item api read&quot;,
+			title: &quot;Read&quot;,
+			method: &quot;GET&quot;,
+			properties: []
+		},
+		{
+			id:&quot;update_{id}&quot;,
+			name:&quot;update&quot;,
+			href:&quot;{fullhost}/{id}&quot;,
+			rel: &quot;item edit-form api&quot;,
+			tags: &quot;company list item&quot;,
+			title: &quot;Edit&quot;,
+			method: &quot;PUT&quot;,
+			properties: [
+				{name:&quot;id&quot;,value:&quot;{id}&quot;},
+				{name:&quot;givenName&quot;,value:&quot;{givenName}&quot;},
+				{name:&quot;familyName&quot;,value:&quot;{familyName}&quot;},
+				{name:&quot;status&quot;,value:&quot;{status}&quot;},
+				{name:&quot;email&quot;,value:&quot;{email}&quot;}
+			]
+		},
+		{
+			id:&quot;status_{id}&quot;,
+			name:&quot;status&quot;,
+			href:&quot;{fullhost}/status/{id}&quot;,
+			rel: &quot;item api status&quot;,
+			tags: &quot;api item list status&quot;,
+			title: &quot;Status&quot;,
+			method: &quot;PATCH&quot;,
+			properties: [
+				{name:&quot;status&quot;,value:&quot;{status}&quot;}
+			]
+		},
+		{
+			id:&quot;remove_{id}&quot;,
+			name: &quot;remove&quot;,
+			href: &quot;{fullhost}/{id}&quot;,
+			rel: &quot;item api remove&quot;,
+			tags: &quot;api item list status&quot;,
+			title: &quot;Remove&quot;,
+			method: &quot;DELETE&quot;,
+			properties: []
+		}
+	]
+}
+
+// EOF
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

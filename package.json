@@ -54,6 +54,7 @@
     "wolkenkit": "^3.1.2"
   },
   "devDependencies": {
-    "better-docs": "^2.3.2"
+    "better-docs": "^2.3.2",
+    "es6-plato": "^1.2.3"
   }
 }
