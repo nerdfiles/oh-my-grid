@@ -1,5 +1,9 @@
-const faker = require('faker')
-const { range, map, compose } = require('ramda')
+/**
+ * @name companies
+ * @module infrastructure/support/fakers/development
+ */
+const faker = require('faker');
+const { range, map, compose } = require('ramda');
 
 module.exports = () => {
   const numberCompanies = range(0, 5)
@@ -18,7 +22,9 @@ module.exports = () => {
       createdAt: new Date(),
       updatedAt: new Date()
     }))
-  )
+  );
 
-  return populateCompany(numberCompanies)
-}
+  return populateCompany(numberCompanies);
+};
+
+// EOF

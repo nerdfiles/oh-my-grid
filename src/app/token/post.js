@@ -2,7 +2,7 @@
  * @name post
  * @module app/token
  */
-const Token = require('../../domain/token')
+const Token = require('../../domain/token');
 
 
 /**
@@ -24,12 +24,12 @@ module.exports = ({ userRepository, webToken }) => {
           }
         })
 
-        const validatePass = userRepository.validatePassword(userCredentials.password)
+        const validatePass = userRepository.validatePassword(userCredentials.password);
 
         if (!validatePass(credentials.password)) {
-          throw new Error('Invalid Credentials')
+          throw new Error('Invalid Credentials');
         }
-        const signIn = webToken.signin()
+        const signIn = webToken.signin();
 
         resolve({
           token: signIn({
@@ -39,16 +39,16 @@ module.exports = ({ userRepository, webToken }) => {
             middleName: userCredentials.middleName,
             email: userCredentials.email
           })
-        })
+        });
       } catch (error) {
-        reject(error)
+        reject(error);
       }
-    })
-  }
+    });
+  };
 
   return {
     validate
-  }
-}
+  };
+};
 
 // EOF
