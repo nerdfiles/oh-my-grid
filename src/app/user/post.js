@@ -1,11 +1,14 @@
 /**
  * @name post
  * @module app/user
+ * @description
+ * Applications implement web components in SSR.
  */
 const { User } = require('../../domain/user');
 
 
 module.exports = ({ userRepository, reply }) => {
+  const component = () => {};
   const create = ({ body }) => {
     return Promise.resolve()
       .then(() => {

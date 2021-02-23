@@ -18,10 +18,10 @@ function loadDbConfig () {
 const ENV = process.env.NODE_ENV || 'development';
 
 const envConfig = require(path.join(__dirname, 'environments', ENV));
-const dbConfig = loadDbConfig();
+const databaseConfig = loadDbConfig();
 const config = Object.assign({
   env: ENV,
-  db: dbConfig
+  database: databaseConfig
 }, envConfig);
 
 module.exports = config;

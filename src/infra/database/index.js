@@ -2,7 +2,7 @@
 const firebase = require('../vendor/firebase');
 
 module.exports = ({ logger, config }) => {
-  if (!config.db) {
+  if (!config.database) {
     /* eslint-disable no-console */
     logger.error('Database config file log not found, disabling database.')
     /* eslint-enable no-console */

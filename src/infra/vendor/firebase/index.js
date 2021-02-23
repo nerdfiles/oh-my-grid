@@ -6,11 +6,11 @@ const admin = require('firebase-admin');
 module.exports = ({ config, basePath }) => {
   admin.initializeApp({
     credential: admin.credential.applicationDefault(),
-    databaseURL: config.db.url
+    databaseURL: config.database.url
   });
   const firestore = admin.firestore();
 
-  const db = {
+  const database = {
     firestore,
     admin,
     models: {}
@@ -19,11 +19,11 @@ module.exports = ({ config, basePath }) => {
   const models = path.join(basePath, './models');
 
   fs.readdirSync(models).forEach(file => {
-    const modelRef = path.join(models, file);
-    db.models[modelRef.name] = modelRef.model;
+    const modelRef = require(path.join(models, file));
+    database.models[modelRef.name] = modelRef.model;
   });
 
-  return db;
+  return database;
 };
 
 // EOF
