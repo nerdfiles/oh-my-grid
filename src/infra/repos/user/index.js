@@ -40,8 +40,19 @@ module.exports = ({ model, database }) => {
    * @name findByEmail
    * @returns {object} user
    */
-  const findByEmail = async (...args) =>
-    await model.where('email', '==', args.email).get();
+  const findByEmail = async (...args) => {
+    console.log(args);
+    console.log(model);
+    let res;
+    try {
+      res = await model.where('email', '==', args.email).get();
+    } catch (e) {
+      res = e;
+      console.error(e);
+    }
+
+    return res;
+  };
 
   /**
    * @name findOne

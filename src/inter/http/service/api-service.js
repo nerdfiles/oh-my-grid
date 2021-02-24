@@ -6,7 +6,7 @@ const got = require('got');
 const cache = {};
 
 module.exports = ({ config }) => {
-  const API_KEY = config.API_KEY;
+  const API_KEY = config.EIA_API_KEY;
   const url = 'http://api.eia.gov/series/?series_id=sssssss&api_key=' + API_KEY + '[&num=10][&out=json]';
 
   const reply = () => {
