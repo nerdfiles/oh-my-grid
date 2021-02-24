@@ -30,15 +30,23 @@ module.exports = ({ userRepository, webToken }) => {
         if (!validatePass(credentials.password)) {
           throw new Error('Invalid Credentials');
         }
-        const signIn = webToken.signin();
 
-        resolve({
-          token: signIn({
-            id: userCredentials.id,
-            email: userCredentials.email
-          })
-        });
+        let signIn;
+        try {
+          signIn = webToken.signin();
+
+          resolve({
+            token: signIn({
+              id: userCredentials.id,
+              email: userCredentials.email
+            })
+          });
+        } catch(e) {
+          console.log(e);
+          reject(e);
+        }
       } catch (error) {
+        console.log(error);
         reject(error);
       }
     });
