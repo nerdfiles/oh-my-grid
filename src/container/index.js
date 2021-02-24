@@ -8,7 +8,7 @@ const { createContainer, asValue, asFunction } = require('awilix');
 const app = require('../app');
 const server = require('../inter/http/server');
 const router = require('../inter/http/router');
-const auth = require('../inter/http/security/authn');
+const authn = require('../inter/http/security/authn');
 const apiService = require('../inter/http/service/api-service');
 const config = require('../../config');
 const logger = require('../infra/logging');
@@ -28,7 +28,7 @@ container
     router: asFunction(router).singleton(),
     logger: asFunction(logger).singleton(),
     database: asFunction(database).singleton(),
-    auth: asFunction(auth).singleton(),
+    auth: asFunction(authn).singleton(),
     jwt: asFunction(jwt).singleton(),
     response: asFunction(response).singleton(),
     date: asFunction(date).singleton(),

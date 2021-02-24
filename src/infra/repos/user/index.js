@@ -17,35 +17,35 @@ module.exports = ({ model, database }) => {
 
   /**
    * @name create
-   * @returns {object} model
+   * @returns {object} user
    */
   const create = async (...args) =>
     await model.add(...args);
 
   /**
    * @name update
-   * @returns {object} model
+   * @returns {object} user
    */
   const update = async (...args) => 
     await model.doc(args.id).update(...args);
 
   /**
    * @name findById
-   * @returns {object} model
+   * @returns {object} user
    */
   const findById = async (...args) => 
     await model.where('id', '==', args.id).get();
 
   /**
    * @name findByEmail
-   * @returns {object} model
+   * @returns {object} user
    */
   const findByEmail = async (...args) =>
     await model.where('email', '==', args.email).get();
 
   /**
    * @name findOne
-   * @returns {object}
+   * @returns {object} user
    */
   const findOne = async (...args) =>
     await model.limit(1).get();

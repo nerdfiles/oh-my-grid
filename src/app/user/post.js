@@ -2,7 +2,8 @@
  * @name post
  * @module app/user
  * @description
- * Applications implement web components in SSR.
+ * Applications implement web components in SSR or use representors to receive 
+ * model.
  */
 const { User } = require('../../domain/user');
 
