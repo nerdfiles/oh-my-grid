@@ -2,7 +2,7 @@
  * @name utils
  * @module interfaces/http
  */
-const createController = require('./create-controller');
+const createController = require('./create-controller.js');
 
 module.exports = {
   createController
