@@ -3,7 +3,7 @@
  * @module infrastructure/repositories/user
  */
 const { toEntity } = require('./transform');
-const { comparePassword } = require('../../encryption');
+const { encryptPassword, comparePassword } = require('../../encryption');
 const pry = require('pryjs');
 
 
@@ -21,8 +21,11 @@ module.exports = ({ model, database }) => {
    * @returns {object} user
    */
   const create = async (...args) => {
-    console.log(args);
     return await model.add(...args);
+  };
+
+  const securePassword = (args) => {
+    return encryptPassword(args.password);
   };
 
   /**
@@ -76,6 +79,7 @@ module.exports = ({ model, database }) => {
     findById,
     findByEmail,
     findOne,
+    securePassword,
     validatePassword,
     destroy
   };

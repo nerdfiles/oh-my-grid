@@ -5,13 +5,10 @@ const firebase = require('firebase');
 
 
 module.exports = ({ config, basePath }) => {
-  var serviceAccount = require("../../../../keys/oh-my-grid-12067af1543f.json");
+  const serviceAccount = require("../../../../keys/oh-my-grid-12067af1543f.json");
 
   admin.initializeApp({
-    //credential: admin.credential.applicationDefault(),
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: config.database.url,
-    //...config
+    credential: admin.credential.cert(serviceAccount)
   });
   const firestore = admin.firestore();
 

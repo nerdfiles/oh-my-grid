@@ -10,18 +10,14 @@ module.exports = ({ userRepository }) => {
   const create = ({ body }) => {
     return Promise.resolve()
       .then(() => {
-        const password = body.password || 'test';
+        console.log('body', body)
+        const password = userRepository.securePassword(body) || 'test';
         const entity = Object.assign({}, body, {
           password
         });
         const user = User(entity);
-        var ur;
-        try {
-          ur = userRepository.create(user);
-        } catch(e) {
-          console.log(e);
-        }
-        return ur;
+        console.log(user);
+        return userRepository.create(user);
       })
       .catch((error) => {
         throw new Error(error);
