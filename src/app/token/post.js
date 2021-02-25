@@ -31,8 +31,7 @@ module.exports = ({ userRepository, webToken }) => {
           throw new Error('Invalid Credentials');
         }
 
-        let signIn;
-        signIn = webToken.signin();
+        let signIn = webToken.signin();
 
         resolve({
           token: signIn({

@@ -4,3 +4,4 @@ nohup.out
 logs/
 .env
 .DS_Store
+keys/

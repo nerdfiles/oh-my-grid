@@ -5,10 +5,13 @@ const firebase = require('firebase');
 
 
 module.exports = ({ config, basePath }) => {
+  var serviceAccount = require("../../../../keys/oh-my-grid-12067af1543f.json");
+
   admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
+    //credential: admin.credential.applicationDefault(),
+    credential: admin.credential.cert(serviceAccount),
     databaseURL: config.database.url,
-    ...config
+    //...config
   });
   const firestore = admin.firestore();
 
@@ -18,10 +21,11 @@ module.exports = ({ config, basePath }) => {
     models: {}
   };
 
-  const models = path.join(basePath, './models');
+  const modelsBasePath = path.join(basePath, './models');
 
-  fs.readdirSync(models).forEach(file => {
-    const modelRef = require(path.join(models, file));
+  fs.readdirSync(modelsBasePath).forEach(file => {
+    const modelPath = require(path.join(modelsBasePath, file));
+    const modelRef = modelPath(firestore);
     database.models[modelRef.name] = modelRef.model;
   });
 

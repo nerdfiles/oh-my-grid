@@ -20,8 +20,10 @@ module.exports = ({ model, database }) => {
    * @name create
    * @returns {object} user
    */
-  const create = async (...args) =>
-    await model.add(...args);
+  const create = async (...args) => {
+    console.log(args);
+    return await model.add(...args);
+  };
 
   /**
    * @name update
@@ -41,21 +43,17 @@ module.exports = ({ model, database }) => {
    * @name findByEmail
    * @returns {object} user
    */
-  const findByEmail = async (...args) => {
-    console.log(args);
-    console.log(model);
-    eval(pry.it);
-    let res;
-    res = await model.where('email', '==', args.email).get();
-    return res;
-  };
+  const findByEmail = async (...args) => await model
+    .where('email', '==', args.email)
+    .get();
 
   /**
    * @name findOne
    * @returns {object} user
    */
-  const findOne = async (...args) =>
-    await model.limit(1).get();
+  const findOne = async (...args) => await model
+    .limit(1)
+    .get();
 
   /**
    * @name validatePassword
