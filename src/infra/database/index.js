@@ -10,6 +10,6 @@ module.exports = ({ logger, config }) => {
   }
 
   return firebase({ config, basePath: __dirname });
-}
+};
 
 // EOF
