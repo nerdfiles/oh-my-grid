@@ -2,12 +2,9 @@
  * @name get
  * @module app/user
  * @description
+ * Get all users.
  */
-/**
-  * function for getter user.
-  */
 module.exports = ({ userRepository }) => {
-  // code for getting all the items
   const all = () => {
     return Promise
       .resolve()

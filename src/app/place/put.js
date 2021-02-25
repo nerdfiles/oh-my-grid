@@ -1,21 +1,21 @@
 /**
  * @name put
- * @module app/user
+ * @module app/place
  * @description
  */
-const { User } = require('../../domain/user');
+const { Place } = require('../../domain/place');
 
 
-module.exports = ({ userRepository }) => {
+module.exports = ({ placeRepository }) => {
   const update = ({ id, body }) => {
     return new Promise(async (resolve, reject) => {
       try {
-        const user = User(body);
-        await userRepository.update(user, {
+        const place = Place(body);
+        await placeRepository.update(place, {
           where: { id }
         });
 
-        resolve(user);
+        resolve(place);
       } catch (error) {
         reject(error);
       }

@@ -1,15 +1,12 @@
 /**
  * @name post
  * @module app/token
+ * Validate for refresh token.
  */
 const Token = require('../../domain/token');
 
 
-/**
-  * function for getter user.
-  */
 module.exports = ({ userRepository, webToken }) => {
-  // code for getting all the items
   const validate = ({ body }) => {
     return new Promise(async (resolve, reject) => {
       try {

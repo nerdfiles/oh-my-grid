@@ -11,6 +11,7 @@ module.exports = ({ model, database }) => {
 
   /**
    * @name getAll
+   * @returns {object}
    */
   const getAll = async (...args) => 
     await model
@@ -18,33 +19,37 @@ module.exports = ({ model, database }) => {
 
   /**
    * @name create
-   * @returns {object} user
+   * @returns {object}
    */
   const create = async (...args) => {
     return await model.add(...args);
   };
 
+  /**
+   * @name securePassword
+   * @returns {string} - An encrypted and salted password.
+   */
   const securePassword = (args) => {
     return encryptPassword(args.password);
   };
 
   /**
    * @name update
-   * @returns {object} user
+   * @returns {object}
    */
   const update = async (...args) => 
     await model.doc(args.id).update(...args);
 
   /**
    * @name findById
-   * @returns {object} user
+   * @returns {object}
    */
   const findById = async (...args) => 
     await model.where('id', '==', args.id).get();
 
   /**
    * @name findByEmail
-   * @returns {object} user
+   * @returns {object}
    */
   const findByEmail = async (...args) => await model
     .where('email', '==', args.email)
@@ -52,7 +57,7 @@ module.exports = ({ model, database }) => {
 
   /**
    * @name findOne
-   * @returns {object} user
+   * @returns {object}
    */
   const findOne = async (...args) => await model
     .limit(1)

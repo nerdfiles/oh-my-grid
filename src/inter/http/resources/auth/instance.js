@@ -5,6 +5,7 @@
 const container = require('../../../../container');
 const { post } = require('../../../../app/auth');
 
+
 module.exports = () => {
   const { repository: { userRepository } } = container.cradle;
 

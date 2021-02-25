@@ -1,18 +1,12 @@
 /**
- * @name token
- * @module domain 
+ * @name index
+ * @module domain/token 
  */
-
-const t = require('tcomb');
-
-
-const Token = t.struct({
-  email: t.String,
-  username: t.maybe(t.String),
-  password: t.String
-});
+const Token = require('./token');
 
 
-module.exports = Token;
+module.exports = {
+  Token
+};
 
 // EOF

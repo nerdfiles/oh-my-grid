@@ -5,13 +5,14 @@
 const Status = require('http-status');
 const { Router } = require('express');
 
+
 module.exports = ({ postUseCase, logger, response: { Success, Fail } }) => {
   const router = Router();
 
   router
     .post('/register', (req, res) => {
       postUseCase
-        .create({ body: req.body })
+        .register({ body: req.body })
         .then(data => {
           res
             .status(Status.OK)

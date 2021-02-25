@@ -1,13 +1,13 @@
 /**
  * @name delete
- * @module app/user
+ * @module app/place
  * @description
- * Tag a user for deletion.
+ * Tag a place for deletion.
  */
-module.exports = ({ userRepository }) => {
+module.exports = ({ placeRepository }) => {
   const remove = ({ id }) => {
     return Promise.resolve()
-      .then(() => userRepository.update({
+      .then(() => placeRepository.update({
           isDeleted: 1
         }, {
           where: { id }
