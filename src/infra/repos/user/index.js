@@ -4,6 +4,7 @@
  */
 const { toEntity } = require('./transform');
 const { comparePassword } = require('../../encryption');
+const pry = require('pryjs');
 
 
 module.exports = ({ model, database }) => {
@@ -43,6 +44,7 @@ module.exports = ({ model, database }) => {
   const findByEmail = async (...args) => {
     console.log(args);
     console.log(model);
+    eval(pry.it);
     let res;
     res = await model.where('email', '==', args.email).get();
     return res;
