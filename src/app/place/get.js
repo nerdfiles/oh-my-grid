@@ -1,5 +1,4 @@
 /**
- * @name get
  * @module app/place
  * @description
  * Get all places.

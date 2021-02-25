@@ -1,5 +1,4 @@
 /**
- * @name index
  * @module app/place
  */
 const get = require('./get');

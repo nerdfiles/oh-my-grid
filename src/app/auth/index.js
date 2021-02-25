@@ -1,6 +1,7 @@
 /**
- * @name index
- * @module app/auth
+ * @module app/auth/index
+ * @description
+ * Index for auth module.
  */
 const post = require('./post');
 

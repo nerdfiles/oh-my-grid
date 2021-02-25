@@ -1,5 +1,4 @@
 /**
- * @name delete
  * @module app/place
  * @description
  * Tag a place for deletion.

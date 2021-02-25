@@ -5,3 +5,6 @@ logs/
 .env
 .DS_Store
 keys/
+coverage
+docs
+reports

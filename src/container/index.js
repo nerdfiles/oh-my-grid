@@ -2,6 +2,7 @@
  * @name container
  * @module core
  * @description
+ * Container.
  */
 const { createContainer, asValue, asFunction } = require('awilix');
 

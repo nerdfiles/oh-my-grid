@@ -2,7 +2,6 @@
  * @name index
  * @module app/user
  * @description
- *
  * Think of these as components which adapt custom names within the context of 
  * HTTP verbs, or extensions of the verb (where Amundsen uses switch statements).
  */

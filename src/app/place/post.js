@@ -1,7 +1,7 @@
 /**
- * @name post
  * @module app/place
  * @description
+ * POST.
  */
 const { Place } = require('../../domain/place');
 

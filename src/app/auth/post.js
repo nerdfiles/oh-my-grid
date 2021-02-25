@@ -1,11 +1,13 @@
-/**
- * @name post
- * @module app/auth
- * @description
- */
 const { User } = require('../../domain/user');
 
 
+/**
+ * @module app/auth/post
+ * @param {Object} container - Container.
+ * @param {Object} container.userRepository - User repo.
+ * @description
+ * POST for auth.
+ */
 module.exports = ({ userRepository }) => {
   const register = ({ body }) => {
     return Promise.resolve()

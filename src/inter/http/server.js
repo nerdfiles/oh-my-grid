@@ -2,6 +2,7 @@
  * @name server
  * @module interfaces/http
  * @description
+ * Server.
  */
 const express = require('express');
 

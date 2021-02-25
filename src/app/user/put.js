@@ -2,6 +2,7 @@
  * @name put
  * @module app/user
  * @description
+ * PUT for User.
  */
 const { User } = require('../../domain/user');
 
