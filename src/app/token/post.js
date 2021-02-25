@@ -1,6 +1,7 @@
 /**
  * @name post
  * @module app/token
+ * @description
  * Validate for refresh token.
  */
 const Token = require('../../domain/token');

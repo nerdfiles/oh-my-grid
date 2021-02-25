@@ -18,6 +18,8 @@ module.exports = ({ postUseCase, logger, response: { Success, Fail } }) => {
  *         type: string
  *       password:
  *         type: string
+ *       username:
+ *         type: string
  */
 
 /**
@@ -54,8 +56,7 @@ module.exports = ({ postUseCase, logger, response: { Success, Fail } }) => {
         })
         .catch((error) => {
           logger.error(error);
-          res.status(Status.BAD_REQUEST).json(
-            Fail(error.message));
+          res.status(Status.BAD_REQUEST).json(Fail(error.message));
         });
     });
 

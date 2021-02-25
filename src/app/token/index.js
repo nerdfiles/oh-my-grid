@@ -1,6 +1,6 @@
 /**
- * @name token
- * @module app
+ * @name index
+ * @module app/token
  */
 const post = require('./post')
 

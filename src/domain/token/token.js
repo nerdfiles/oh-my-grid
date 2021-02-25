@@ -1,6 +1,6 @@
 /**
  * @name token
- * @module domain 
+ * @module domain/token
  */
 
 const t = require('tcomb');

@@ -1,3 +1,7 @@
+/**
+ * @name index
+ * @module app
+ */
 module.exports = ({ server, database }) => {
   return {
     start: () =>

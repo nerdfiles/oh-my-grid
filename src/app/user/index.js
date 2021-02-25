@@ -1,6 +1,6 @@
 /**
- * @name user
- * @module app
+ * @name index
+ * @module app/user
  * @description
  *
  * Think of these as components which adapt custom names within the context of 

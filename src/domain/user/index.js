@@ -1,6 +1,6 @@
 /**
- * @name user
- * @module domain 
+ * @name index
+ * @module domain/user
  */
 const User = require('./user');
 
