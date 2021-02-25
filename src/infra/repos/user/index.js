@@ -44,13 +44,7 @@ module.exports = ({ model, database }) => {
     console.log(args);
     console.log(model);
     let res;
-    try {
-      res = await model.where('email', '==', args.email).get();
-    } catch (e) {
-      res = e;
-      console.error(e);
-    }
-
+    res = await model.where('email', '==', args.email).get();
     return res;
   };
 

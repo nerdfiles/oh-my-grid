@@ -32,19 +32,15 @@ module.exports = ({ userRepository, webToken }) => {
         }
 
         let signIn;
-        try {
-          signIn = webToken.signin();
+        signIn = webToken.signin();
 
-          resolve({
-            token: signIn({
-              id: userCredentials.id,
-              email: userCredentials.email
-            })
-          });
-        } catch(e) {
-          console.log(e);
-          reject(e);
-        }
+        resolve({
+          token: signIn({
+            id: userCredentials.id,
+            email: userCredentials.email
+          })
+        });
+
       } catch (error) {
         console.log(error);
         reject(error);
