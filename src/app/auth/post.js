@@ -14,6 +14,7 @@ module.exports = ({ userRepository }) => {
         const entity = Object.assign({}, body, {
           password
         });
+        entity.createdAt = new Date();
         const user = User(entity);
         return userRepository.create(user);
       })
