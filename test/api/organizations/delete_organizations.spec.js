@@ -1,14 +1,18 @@
 /* eslint-env mocha */
+/**
+ * @module test/api/organizations/delete_organizations.spec
+ */
 const {
   userRepository,
-  companyRepository
-} = app.resolve('repository')
+  organizationRepository
+} = app.resolve('repository');
 
-describe('Routes: GET Companies', () => {
-  const BASE_URI = `/api/${config.version}`
+describe('Routes: DELETE Organizations', () => {
+  const BASE_URI = `/api/${config.version}`;
 
-  const signIn = app.resolve('jwt').signin()
-  let token
+  const signIn = app.resolve('jwt').signin();
+  let token;
+  let organizationId;
 
   beforeEach((done) => {
     // we need to add user before we can request our token
@@ -24,7 +28,7 @@ describe('Routes: GET Companies', () => {
           roleId: 1,
           isDeleted: 0,
           createdBy: '48e40a9c-c5e9-4d63-9aba-b77cdf4ca67b'
-        })
+        });
       ).then((user) => {
         token = signIn({
           id: user.id,
@@ -32,18 +36,18 @@ describe('Routes: GET Companies', () => {
           lastName: user.lastName,
           middleName: user.middleName,
           email: user.email
-        })
-        done()
-      })
-  })
+        });
+        done();
+      });
+  });
 
-  describe('Should return companies', () => {
+  describe('Should DELETE organizations', () => {
     beforeEach((done) => {
-      companyRepository
+      organizationRepository
         .destroy({ where: {} })
         .then(() =>
-          companyRepository.create({
-            'name': 'My Company Test',
+          organizationRepository.create({
+            'name': 'My Organization Test',
             'address': '1705 German Hollow',
             'contact': '658.412.5787',
             'tin': 'KZ460888270914935SZV',
@@ -51,28 +55,32 @@ describe('Routes: GET Companies', () => {
             'philhealth': 'IL455238030594064057191',
             'isDeleted': 0,
             'createdBy': '4efda34e-5e05-483a-8e3f-ac31d20dc2a8'
-          })
+          });
         )
-        .then(() => done())
-    })
+        .then(({ id }) => {
+          organizationId = id;
+          done();
+        });
+    });
 
-    it('should return all companies', (done) => {
-      request.get(`${BASE_URI}/companies`)
+    it('should delete organization', (done) => {
+      request.delete(`${BASE_URI}/organizations/${organizationId}`)
         .set('Authorization', `JWT ${token}`)
         .expect(200)
         .end((err, res) => {
-          expect(res.body.data).to.have.length(1)
-          done(err)
-        })
-    })
+          console.log(res.body);
+          expect(res.body.success).to.eql(true);
+          done(err);
+        });
+    });
 
     it('should return unauthorized if no token', (done) => {
-      request.get(`${BASE_URI}/companies`)
+      request.delete(`${BASE_URI}/organizations/${organizationId}`)
         .expect(401)
         .end((err, res) => {
-          expect(res.text).to.equals('Unauthorized')
-          done(err)
-        })
-    })
-  })
-})
+          expect(res.text).to.equals('Unauthorized');
+          done(err);
+        });
+    });
+  });
+});
