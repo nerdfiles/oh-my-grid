@@ -1,18 +1,13 @@
 /**
- * @module app/place
- * @description
- * PUT requests for Place.
- */
-const { Place } = require('../../domain/place');
-
-
-/**
- * @exports app/place/put
+ * @module app/place/put
  * @param {Object} container - Container.
  * @param {Object} container.placeRepository - Repo for place.
  * @description
  * Componenture for PUT requests under the Place application.
  */
+const { Place } = require('../../domain/place');
+
+
 module.exports = ({ placeRepository }) => {
   const update = ({ id, body }) => {
     return new Promise(async (resolve, reject) => {
@@ -26,8 +21,8 @@ module.exports = ({ placeRepository }) => {
       } catch (error) {
         reject(error);
       }
-    })
-  }
+    });
+  };
 
   return {
     update

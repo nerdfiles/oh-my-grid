@@ -1,6 +1,7 @@
 /**
- * @name jwt
- * @module infrastructure
+ * @module infrastructure/jwt
+ * @description
+ * Signing, etc.
  */
 const jwt = require('jsonwebtoken');
 const {
@@ -12,14 +13,29 @@ const {
 
 
 module.exports = ({ config }) => ({
+  /**
+   * @function signin
+   * @inner
+   * @param {Object} options
+   */
   signin: (options) => (payload) => {
     const opt = Object.assign({}, options, { expiresIn: '1h' });
     return jwt.sign(payload, config.AUTH_SECRET, opt);
   },
+  /**
+   * @function verify
+   * @inner
+   * @param {Object} options
+   */
   verify: (options) => (token) => {
     const opt = Object.assign({}, options);
     return jwt.verify(token, config.AUTH_SECRET, opt);
   },
+  /**
+   * @function decode
+   * @inner
+   * @param {Object} options
+   */
   decode: (options) => (token) => {
     const opt = Object.assign({}, options);
     const decodeToken = compose(

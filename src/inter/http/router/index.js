@@ -55,6 +55,7 @@ module.exports = ({ config, logger, database }) => {
   apiRouter.use('/auth', createController('auth').router);
   apiRouter.use('/users', createController('user').router);
   apiRouter.use('/token', createController('token').router);
+  apiRouter.use('/places', createController('place').router);
 
   router.use(`/api`, apiRouter);
   router.use(`/api/${config.VERSION}`, apiRouter);

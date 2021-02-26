@@ -1,5 +1,7 @@
 /**
- * @module app/place
+ * @module app/place/delete
+ * @param {Object} container - Container.
+ * @param {Object} container.placeRepository - Place repo.
  * @description
  * Tag a place for deletion.
  */

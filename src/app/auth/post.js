@@ -1,6 +1,3 @@
-const { User } = require('../../domain/user');
-
-
 /**
  * @module app/auth/post
  * @param {Object} container - Container.
@@ -8,7 +5,14 @@ const { User } = require('../../domain/user');
  * @description
  * POST for auth.
  */
+const { User } = require('../../domain/user');
+
+
 module.exports = ({ userRepository }) => {
+  /**
+   * @function register
+   * @inner
+   */
   const register = ({ body }) => {
     return Promise.resolve()
       .then(() => {
@@ -17,6 +21,7 @@ module.exports = ({ userRepository }) => {
           password
         });
         entity.createdAt = new Date();
+        entity.updatedAt = new Date();
         const user = User(entity);
         return userRepository.create(user);
       })

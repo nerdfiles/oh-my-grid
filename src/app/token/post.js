@@ -1,6 +1,5 @@
 /**
- * @name post
- * @module app/token
+ * @module app/token/post
  * @description
  * Validate for refresh token.
  */

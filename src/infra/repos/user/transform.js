@@ -1,10 +1,5 @@
 /**
- * @name transform
- * @module infrastructure/repositories/user
- * @usage
- * .
- * @example
- * .
+ * @module infrastructure/repositories/user/transform
  */
 const { User } = require('../../../domain/user');
 

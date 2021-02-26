@@ -1,5 +1,5 @@
 /**
- * @module app/place
+ * @module app/place/get
  * @description
  * Get all places.
  */

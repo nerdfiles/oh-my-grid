@@ -1,5 +1,5 @@
 /**
- * @module app/place
+ * @module app/place/post
  * @description
  * POST.
  */
