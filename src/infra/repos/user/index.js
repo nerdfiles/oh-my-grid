@@ -1,5 +1,7 @@
 /**
  * @module infrastructure/repositories/user/index
+ * @description
+ * Actions map to repository methods.
  */
 const { toEntity } = require('./transform');
 const { encryptPassword, comparePassword } = require('../../encryption');

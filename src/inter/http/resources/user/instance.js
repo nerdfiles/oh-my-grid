@@ -1,5 +1,4 @@
 /**
- * @name instance
  * @module interfaces/http/resources/user
  */
 const container = require('../../../../container');
