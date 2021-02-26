@@ -1,6 +1,5 @@
 /**
- * @name instance
- * @module interfaces/http/resources/token
+ * @module interfaces/http/resources/token/instance
  */
 const container = require('../../../../container');
 const { post } = require('../../../../app/token');

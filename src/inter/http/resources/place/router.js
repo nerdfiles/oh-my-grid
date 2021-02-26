@@ -1,6 +1,5 @@
 /**
- * @name router
- * @module interfaces/http/resources/place
+ * @module interfaces/http/resources/place/router
  */
 const Status = require('http-status');
 const { Router } = require('express');
@@ -47,7 +46,7 @@ module.exports = ({
 
   router
     .put('/', (req, res) => {
-      putUseCase
+      putUseCase.update({ id: req.body.id, body: req.body })
         .then(data => {
           res.status(Status.OK).json(Success(data))
         })
@@ -58,7 +57,7 @@ module.exports = ({
 
   router
     .delete('/', (req, res) => {
-      deleteUseCase
+      deleteUseCase.remove({ id: req.body.id })
         .then(data => {
           res.status(Status.OK).json(Success(data))
         })

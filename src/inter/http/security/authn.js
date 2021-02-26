@@ -1,6 +1,5 @@
 /**
- * @name authn
- * @module interfaces/http
+ * @module interfaces/http/security/authn
  */
 const passport = require('passport');
 const { ExtractJwt, Strategy } = require('passport-jwt');

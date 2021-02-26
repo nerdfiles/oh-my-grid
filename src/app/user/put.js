@@ -1,6 +1,5 @@
 /**
- * @name put
- * @module app/user
+ * @module app/user/put
  * @description
  * PUT for User.
  */

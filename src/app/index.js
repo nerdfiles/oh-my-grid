@@ -1,6 +1,5 @@
 /**
- * @name index
- * @module app
+ * @module app/index
  */
 module.exports = ({ server, database }) => {
   return {

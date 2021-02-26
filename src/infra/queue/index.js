@@ -1,0 +1,3 @@
+/**
+ * @module infrastructure/queue/index
+ */

@@ -1,14 +1,11 @@
 /**
- * @name transitions
- * @module interfaces/http
+ * @module interfaces/http/transitions/index
+ * @author mamund
+ * @created 2020-02-01
+ * @description 
+ * DARRT Framework: transitions
  */
-/*****************************************
-// DARRT Framework
-// transitions
-// 2020-02-01 : mamund
- *****************************************/
- 
- // page- and item-level forms
+// page- and item-level forms
 exports.forms = {
 	pageForms: [
 		{

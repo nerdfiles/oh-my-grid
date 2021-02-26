@@ -1,6 +1,5 @@
 /**
- * @name create-controller
- * @module interfaces/http/utils
+ * @module interfaces/http/utils/create-controller
  */
 const path = require('path');
 

@@ -27,14 +27,6 @@ module.exports = ({ model, database }) => {
   };
 
   /**
-   * @name securePassword
-   * @returns {string} - An encrypted and salted password.
-   */
-  const securePassword = (args) => {
-    return encryptPassword(args.password);
-  };
-
-  /**
    * @name update
    * @returns {object}
    */
@@ -70,6 +62,13 @@ module.exports = ({ model, database }) => {
    */
   const validatePassword = (endcodedPassword) => (password) =>
     comparePassword(password, endcodedPassword);
+
+  /**
+   * @name securePassword
+   * @returns {string} - An encrypted and salted password.
+   */
+  const securePassword = (args) => 
+    encryptPassword(args.password);
 
   /**
    * @name destroy

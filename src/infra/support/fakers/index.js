@@ -1,3 +1,7 @@
+/**
+ * @module infrastructure/support/fakers/index
+ */
+
 require('dotenv').load();
 const path = require('path');
 

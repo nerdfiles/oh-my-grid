@@ -1,5 +1,5 @@
 /**
- * @module app/place
+ * @module app/place/index
  */
 const get = require('./get');
 const post = require('./post');

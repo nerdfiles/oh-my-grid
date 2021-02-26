@@ -1,6 +1,5 @@
 /**
- * @name cli
- * @module infrastructure
+ * @module infrastructure/cli/index
  */
 
 // EOF

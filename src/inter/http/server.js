@@ -1,6 +1,5 @@
 /**
- * @name server
- * @module interfaces/http
+ * @module interfaces/http/server
  * @description
  * Server.
  */

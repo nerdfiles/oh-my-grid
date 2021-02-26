@@ -1,6 +1,5 @@
 /**
- * @name transform
- * @module infrastructure/repositories/place
+ * @module infrastructure/repositories/place/transform
  * @description
  * The thing about the transformation here is that it must link to the interface 
  * that supports hypermedia affordances. Here we want to present to the user all 

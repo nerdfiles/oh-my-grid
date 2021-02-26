@@ -1,6 +1,5 @@
 /**
- * @name index
- * @module interfaces/http/resources/token
+ * @module interfaces/http/resources/token/index
  */
 const container = require('../../../../container');
 const router = require('./router');

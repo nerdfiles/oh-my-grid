@@ -1,6 +1,5 @@
 /**
- * @name index
- * @module domain/place
+ * @module domain/place/index
  */
 const Place = require('./place');
 

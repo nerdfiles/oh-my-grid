@@ -1,6 +1,5 @@
 /**
- * @name container
- * @module core
+ * @module container/index
  * @description
  * Container.
  */

@@ -1,6 +1,5 @@
 /**
- * @name feed
- * @module domain/feed
+ * @module domain/feed/feed
  */
 const t = require('tcomb');
 const { compose } = require('ramda');

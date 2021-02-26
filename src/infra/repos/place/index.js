@@ -1,11 +1,11 @@
 /**
- * @module infrastructure/repositories/user/index
+ * @module infrastructure/repositories/place/index
  * @description
- * Actions map to repository methods.
+ * Repo/methods for places.
  */
 const { toEntity } = require('./transform');
 const { encryptPassword, comparePassword } = require('../../encryption');
-const pry = require('pryjs');
+//const pry = require('pryjs');
 
 
 module.exports = ({ model, database }) => {

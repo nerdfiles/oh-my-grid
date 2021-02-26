@@ -1,6 +1,5 @@
 /**
- * @name router
- * @module interfaces/http/resources/user
+ * @module interfaces/http/resources/user/router
  */
 const Status = require('http-status');
 const { Router } = require('express');

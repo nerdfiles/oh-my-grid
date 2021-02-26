@@ -1,6 +1,5 @@
 /**
- * @name user
- * @module domain/user
+ * @module domain/user/user
  */
 const t = require('tcomb');
 const { compose } = require('ramda');

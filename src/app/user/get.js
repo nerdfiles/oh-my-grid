@@ -1,6 +1,5 @@
 /**
- * @name get
- * @module app/user
+ * @module app/user/get
  * @description
  * Get all users.
  */

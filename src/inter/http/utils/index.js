@@ -1,6 +1,5 @@
 /**
- * @name utils
- * @module interfaces/http
+ * @module interfaces/http/utils/index
  */
 const createController = require('./create-controller.js');
 

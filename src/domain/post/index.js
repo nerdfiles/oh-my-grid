@@ -1,6 +1,5 @@
 /**
- * @name index
- * @module domain/post
+ * @module domain/post/index
  */
 
 // EOF

@@ -1,6 +1,5 @@
 /**
- * @name instance
- * @module interfaces/http/resources/auth
+ * @module interfaces/http/resources/auth/instance
  */
 const container = require('../../../../container');
 const { post } = require('../../../../app/auth');

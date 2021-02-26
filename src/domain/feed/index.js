@@ -1,6 +1,5 @@
 /**
- * @name feed
- * @module domain 
+ * @module domain/feed/index
  */
 const Feed = require('./feed');
 

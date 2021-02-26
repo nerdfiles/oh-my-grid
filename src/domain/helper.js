@@ -1,6 +1,5 @@
 /**
- * @name helper
- * @module domain
+ * @module domain/helper
  */
 const { 
   complement, 

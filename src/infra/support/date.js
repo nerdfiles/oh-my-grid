@@ -1,6 +1,5 @@
 /**
- * @name date
- * @module infrastructure/support
+ * @module infrastructure/support/date
  */
 const moment = require('moment');
 

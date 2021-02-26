@@ -1,6 +1,5 @@
 /**
- * @name resources
- * @module interfaces/http
+ * @module interfaces/http/resources/index
  */
 const swaggerJSDoc = require('swagger-jsdoc');
 const Status = require('http-status');

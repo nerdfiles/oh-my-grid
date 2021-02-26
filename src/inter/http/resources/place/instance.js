@@ -1,5 +1,5 @@
 /**
- * @module interfaces/http/resources/place
+ * @module interfaces/http/resources/place/instance
  */
 const container = require('../../../../container');
 const { post, get, put, remove } = require('../../../../app/place');

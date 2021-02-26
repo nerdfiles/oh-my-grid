@@ -1,3 +1,6 @@
+/**
+ * @module infrastructure/support/fakers/development/users
+ */
 const { encryptPassword } = require('src/infra/encryption');
 
 module.exports = () => {

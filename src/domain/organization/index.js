@@ -1,6 +1,5 @@
 /**
- * @name organization
- * @module domain 
+ * @module domain/organization/index
  */
 
 // EOF

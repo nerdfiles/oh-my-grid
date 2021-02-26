@@ -1,6 +1,5 @@
 /**
- * @name jobs
- * @module infrastructure
+ * @module infrastructure/jobs/index
  */
 
 // EOF

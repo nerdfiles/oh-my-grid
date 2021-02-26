@@ -1,6 +1,5 @@
 /**
- * @name router
- * @module interfaces/http/resources/token
+ * @module interfaces/http/resources/token/router
  */
 const Status = require('http-status');
 const { Router } = require('express');

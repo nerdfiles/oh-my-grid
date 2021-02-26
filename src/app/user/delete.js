@@ -1,6 +1,5 @@
 /**
- * @name delete
- * @module app/user
+ * @module app/user/delete
  * @description
  * Tag a user for deletion.
  */

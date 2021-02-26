@@ -1,10 +1,8 @@
 /**
- * @name place
- * @module infrastructure/database/models
+ * @module infrastructure/database/models/place/index
  */
-const collectionNamespace = 'places';
-
 module.exports = (firestore) => {
+  const collectionNamespace = 'places';
   const Place = firestore.collection(collectionNamespace);
 
   const placeModel = {

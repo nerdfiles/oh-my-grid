@@ -1,6 +1,5 @@
 /**
- * @name companies
- * @module infrastructure/support/fakers/development
+ * @module infrastructure/support/fakers/development/companies
  */
 const faker = require('faker');
 const { range, map, compose } = require('ramda');

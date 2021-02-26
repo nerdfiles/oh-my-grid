@@ -1,6 +1,5 @@
 /**
- * @name exception
- * @module interfaces/http/middleware
+ * @module interfaces/http/middleware/error-handler
  */
 const Status = require('http-status');
 

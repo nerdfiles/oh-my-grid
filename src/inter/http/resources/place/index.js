@@ -1,6 +1,5 @@
 /**
- * @name place
- * @module interfaces/http/resources
+ * @module interfaces/http/resources/place/index
  */
 const container = require('../../../../container');
 const instance = require('./instance');

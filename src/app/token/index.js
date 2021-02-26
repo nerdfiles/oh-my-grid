@@ -1,8 +1,7 @@
 /**
- * @name index
- * @module app/token
+ * @module app/token/index
  */
-const post = require('./post')
+const post = require('./post');
 
 module.exports = {
   post

@@ -1,5 +1,5 @@
 /**
- * @module interfaces/http/resources/user
+ * @module interfaces/http/resources/user/instance
  */
 const container = require('../../../../container');
 const { post, get } = require('../../../../app/user');

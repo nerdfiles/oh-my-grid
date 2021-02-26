@@ -1,6 +1,5 @@
 /**
- * @name response
- * @module infrastructure/support
+ * @module infrastructure/support/response
  */
 const { assoc } = require('ramda');
 

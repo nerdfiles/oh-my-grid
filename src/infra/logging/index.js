@@ -1,6 +1,5 @@
 /**
- * @name logging
- * @module infrastructure
+ * @module infrastructure/logging/index
  */
 const fs = require('fs');
 const winston = require('winston');

@@ -1,5 +1,5 @@
 /**
- * @module infrastructure/jwt
+ * @module infrastructure/jwt/index
  * @description
  * Signing, etc.
  */

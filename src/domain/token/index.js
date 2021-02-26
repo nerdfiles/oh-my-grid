@@ -1,6 +1,5 @@
 /**
- * @name index
- * @module domain/token 
+ * @module domain/token/index
  */
 const Token = require('./token');
 

@@ -1,6 +1,5 @@
 /**
- * @name api-service
- * @module interfaces/http/service
+ * @module interfaces/http/service/api-service
  */
 const got = require('got');
 const cache = {};

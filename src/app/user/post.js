@@ -1,6 +1,5 @@
 /**
- * @name post
- * @module app/user
+ * @module app/user/post
  * @description
  * Applications implement web components in SSR or use representors to receive 
  * model.

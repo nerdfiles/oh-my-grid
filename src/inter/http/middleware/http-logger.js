@@ -1,6 +1,5 @@
 /**
- * @name http-logger
- * @module interfaces/http/middleware
+ * @module interfaces/http/middleware/http-logger
  */
 const morgan = require('morgan');
 

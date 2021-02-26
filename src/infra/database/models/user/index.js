@@ -1,6 +1,5 @@
 /**
- * @name user
- * @module infrastructure/database/models
+ * @module infrastructure/database/models/user/index
  */
 const collectionNamespace = 'users';
 

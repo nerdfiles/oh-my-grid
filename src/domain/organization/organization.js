@@ -1,0 +1,3 @@
+/**
+ * @module domain/organization/organization
+ */

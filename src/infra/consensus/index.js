@@ -1,0 +1,3 @@
+/**
+ * @module infrastructure/consensus/index
+ */
