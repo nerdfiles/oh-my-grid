@@ -1,8 +1,8 @@
 
 const { expect } = require('chai')
-const postUsecase = require('src/app/company/post')
+const postUsecase = require('src/app/organization/post')
 
-describe('App -> Company -> Post', () => {
+describe('App -> Organization -> Post', () => {
   const body = {
     name: 'Test comp1',
     address: 'address1',
@@ -22,7 +22,7 @@ describe('App -> Company -> Post', () => {
       }
 
       useCase = postUsecase({
-        companyRepository: MockRepository
+        organizationRepository: MockRepository
       })
     })
 
@@ -42,7 +42,7 @@ describe('App -> Company -> Post', () => {
       }
 
       useCase = postUsecase({
-        companyRepository: MockRepository
+        organizationRepository: MockRepository
       })
     })
 

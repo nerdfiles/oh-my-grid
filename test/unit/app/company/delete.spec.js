@@ -3,11 +3,11 @@ const { expect, use } = require('chai')
 const sinon = require('sinon')
 const sinonChai = require('sinon-chai')
 
-const deleteUsecase = require('src/app/company/delete')
+const deleteUsecase = require('src/app/organization/delete')
 
 use(sinonChai)
 
-describe('App -> Company -> Delete', () => {
+describe('App -> Organization -> Delete', () => {
   let useCase
   let method
 
@@ -19,11 +19,11 @@ describe('App -> Company -> Delete', () => {
 
       method = sinon.spy(MockRepository, 'update')
       useCase = deleteUsecase({
-        companyRepository: MockRepository
+        organizationRepository: MockRepository
       })
     })
 
-    it('should have called delete method of companyRepository', async () => {
+    it('should have called delete method of organizationRepository', async () => {
       await useCase.remove({ id: 1 })
       // eslint-disable-next-line
       expect(method).to.have.been.called
@@ -38,7 +38,7 @@ describe('App -> Company -> Delete', () => {
       }
 
       useCase = deleteUsecase({
-        companyRepository: MockRepository
+        organizationRepository: MockRepository
       })
     })
 

@@ -1,32 +1,34 @@
+/**
+ * @module test/unit/app/user/delete.spec
+ */
+const { expect, use } = require('chai');
+const sinon = require('sinon');
+const sinonChai = require('sinon-chai');
 
-const { expect, use } = require('chai')
-const sinon = require('sinon')
-const sinonChai = require('sinon-chai')
+const deleteUsecase = require('src/app/user/delete');
 
-const deleteUsecase = require('src/app/user/delete')
-
-use(sinonChai)
+use(sinonChai);
 
 describe('App -> User -> Delete', () => {
-  let useCase
-  let method
+  let useCase;
+  let method;
 
   describe('Success path', () => {
     beforeEach(() => {
       const MockRepository = {
         update: () => {}
-      }
+      };
 
-      method = sinon.spy(MockRepository, 'update')
+      method = sinon.spy(MockRepository, 'update');
       useCase = deleteUsecase({
         userRepository: MockRepository
-      })
-    })
+      });
+    });
 
     it('should have called delete method of userRepository', async () => {
-      await useCase.remove({ id: 1 })
+      await useCase.remove({ id: 1 });
       // eslint-disable-next-line
-      expect(method).to.have.been.called
+      expect(method).to.have.been.called;
     })
   })
 
@@ -39,17 +41,17 @@ describe('App -> User -> Delete', () => {
 
       useCase = deleteUsecase({
         userRepository: MockRepository
-      })
-    })
+      });
+    });
 
     it('should display error on rejection', async () => {
-      let error
+      let error;
       try {
-        await useCase.remove({ id: 1 })
+        await useCase.remove({ id: 1 });
       } catch (e) {
-        error = e.message
+        error = e.message;
       }
-      expect(error).to.equal('Error')
-    })
-  })
+      expect(error).to.equal('Error');
+    });
+  });
 })

@@ -1,3 +1,6 @@
+/**
+ * @module test/setup
+ */
 const request = require('supertest');
 const chai = require('chai');
 const container = require('src/container');
@@ -14,3 +17,5 @@ global.expect = chai.expect;
 global.app = container;
 global.request = request(server.app);
 global.config = config;
+
+// EOF

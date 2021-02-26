@@ -1,11 +1,11 @@
 
 const { expect } = require('chai')
-const getUsecase = require('src/app/company/get')
+const getUsecase = require('src/app/organization/get')
 
-describe('App -> Company -> Get', () => {
+describe('App -> Organization -> Get', () => {
   let useCase
   const mockData = [{
-    company: 'Test'
+    organization: 'Test'
   }]
 
   describe('Success path', () => {
@@ -15,7 +15,7 @@ describe('App -> Company -> Get', () => {
       }
 
       useCase = getUsecase({
-        companyRepository: MockRepository
+        organizationRepository: MockRepository
       })
     })
 
@@ -33,7 +33,7 @@ describe('App -> Company -> Get', () => {
       }
 
       useCase = getUsecase({
-        companyRepository: MockRepository
+        organizationRepository: MockRepository
       })
     })
 

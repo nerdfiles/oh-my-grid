@@ -1,17 +1,27 @@
 /**
- * We need to find a way to user the repositories for our test that it we will have minimum impact once we change our ORM or our DATABASE
+ * @module test/factory
+ * We need to find a way to user the repositories for our test that it we will 
+ * have minimum impact once we change our ORM or our DATABASE
  */
-const { curry } = require('ramda')
+const { curry } = require('ramda');
 
-// we will call each repo on thier test  cases  here we will just compose the items.
+/**
+ * @name models
+ * @param {string} name - Name of a given model.
+ */
+const models = (name) => app.resolve('database').models[name];
 
-const models = (name) => app.resolve('database').models[name]
-
+/**
+ * @name repository
+ */
 const repository = curry((repo, model) => {
   return repo(model)
-})
+});
+
 
 module.exports = {
   models,
   repository
-}
+};
+
+// EOF
