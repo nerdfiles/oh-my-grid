@@ -10,7 +10,7 @@ module.exports = ({ config, basePath }) => {
     models: {}
   };
 
-  const modelsBasePath = path.join(basePath, './models');
+  const modelsBasePath = path.join(basePath, './schema');
 
   fs.readdirSync(modelsBasePath).forEach(file => {
     const modelPath = require(path.join(modelsBasePath, file));
