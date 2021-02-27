@@ -29,7 +29,7 @@ module.exports = ({
    *       longitude:
    *         type: decimal
    */
-  router.use(auth.authenticate());
+  //router.use(auth.authenticate());
 
   router
     .get('/', (req, res) => {
