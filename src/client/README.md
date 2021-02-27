@@ -1,27 +1,44 @@
-# Client
+Angular Folder Structure - Highly Scalable
+========================================
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+![docs badge](https://readthedocs.org/projects/angular-folder-structure/badge/?version=latest)
 
-## Development server
+This project is inspired by the article on ITNEXT called
+"[How to define a highly scalable folder structure for your Angular project](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7)"
+by Mathis Garberg. Based on best practices from the community, other github
+Angular projects, developer experience from production Angular projects, and
+contributors to this repository, this project's goal is to *create a skeleton
+structure which is flexible for projects big or small*.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![login screen screenshot](https://raw.githubusercontent.com/mathisGarberg/angular-folder-structure/master/media/screenshot.png)
 
-## Code scaffolding
+Tree Structure
+--------------
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This tree represents the directories this repository proposes be added to a
+default Angular application.
 
-## Build
+```
+  .
+  ├── media
+  └── src
+      ├── app
+      │   ├── core
+      │   ├── data
+      │   ├── layout
+      │   ├── module
+      │   └── shared
+      └── styles
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Documentation
+-------------
 
-## Running unit tests
+[Read The Documentation](https://angular-folder-structure.readthedocs.io/en/latest/#)
+for details on each part of the directory structure.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Demonstration Application
+-------------------------
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[See The Application](https://mathisgarberg.github.io/angular-folder-structure/)
+in action.  

@@ -1,13 +1,33 @@
+@import '~bootstrap/scss/bootstrap';
+
 @import '~@angular/material/theming';
 
-@import './styles/themes/black-theme.scss';
-@import './styles/themes/light-theme.scss';
+$custom-typography: mat-typography-config(
+  $font-family: 'Open-sans, Arial, sans-serif'
+);
+
+@import './styles/styles-variables';
+@import './styles/style-reset';
+@import './styles/styles-reset.scss-theme';
 
 @include mat-core();
 
-.my-light-theme {
-  @include angular-material-theme($my-light-theme);
+@import './themes/black-theme.scss';
+@import './themes/light-theme.scss';
+
+@import 'app/modules/home/page/project-item/project-container.component.scss-theme.scss';
+
+@mixin custom-components-theme($theme) {
+  @include my-styles-reset-theme($theme);
+  @include my-project-container-component-theme($theme);
 }
-.my-dark-theme {
-  @include angular-material-theme($my-dark-theme);
+
+.afs-light-theme {
+  @include angular-material-theme($afs-light-theme);
+  @include custom-components-theme($afs-light-theme);
+}
+
+.afs-dark-theme {
+  @include angular-material-theme($afs-black-theme);
+  @include custom-components-theme($afs-black-theme);
 }
