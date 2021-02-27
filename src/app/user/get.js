@@ -1,4 +1,4 @@
-/**
+ /**
  * @module app/user/get
  * @description
  * Get all users.
