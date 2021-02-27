@@ -70,6 +70,13 @@ exports.forms = {
 			]
 		}
 	],
+  templates: [
+    {
+      id: "{{uuidv4()}}",
+      name: "$ yuml -c {config.json} cqrs_etc.png",
+      href: "https://example.org/",
+    }
+  ],
 	itemForms: [
 		{
 			id:"read_{id}",
