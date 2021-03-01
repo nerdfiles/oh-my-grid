@@ -53,6 +53,7 @@ module.exports = ({ config, logger, database }) => {
   apiRouter.use('/', createController('index'));
   apiRouter.use('/auth', createController('auth').router);
   apiRouter.use('/users', createController('user').router);
+  apiRouter.use('/organizations', createController('organization').router);
   apiRouter.use('/token', createController('token').router);
   apiRouter.use('/places', createController('place').router);
 

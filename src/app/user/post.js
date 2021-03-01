@@ -2,7 +2,10 @@
  * @module app/user/post
  * @description
  * Applications implement web components in SSR or use representors to receive 
- * model.
+ * model. Web components read from transition steps provided through DARRT. We 
+ * can conceptualize transitions as action or interaction within the application 
+ * namespace which will constitute link relations (perceptual relations as causal
+ * relations; see Fazi's Contingent Computation). 
  */
 const { v4: uuidv4 } = require('uuid');
 const { User } = require('../../domain/user');

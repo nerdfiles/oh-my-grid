@@ -1,5 +1,7 @@
 /**
  * @module interfaces/http/resources/user/instance
+ * @description
+ * Should transitions be a containerized module?
  */
 const container = require('../../../../container');
 const { post, get } = require('../../../../app/user');
@@ -12,9 +14,8 @@ module.exports = () => {
     },
     apiService
   } = container.cradle;
-  const reply = apiService().reply;
 
-  const postUseCase = post({ userRepository, reply });
+  const postUseCase = post({ userRepository });
   const getUseCase = get({ userRepository });
 
   return {
