@@ -1,7 +1,7 @@
 /**
  * @module infrastructure/support/fakers/development/users
  */
-const { encryptPassword } = require('src/infra/encryption');
+const { encryptPassword } = require('../../../../infra/encryption');
 
 module.exports = () => {
   const password = encryptPassword('pass');

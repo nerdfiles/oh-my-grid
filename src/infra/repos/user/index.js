@@ -18,6 +18,10 @@ module.exports = ({ model, database }) => {
     await model
       .listDocuments().then((docRefs) => database.firestore.getAll(docRefs));
 
+  const bulkCreate = async (...args) => {
+    return await model;
+  };
+
   /**
    * @name create
    * @returns {object}

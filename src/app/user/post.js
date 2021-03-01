@@ -12,6 +12,16 @@ const { User } = require('../../domain/user');
 
 
 module.exports = ({ userRepository, reply }) => {
+  const bulkCreate = () => {
+    return Promise.resolve()
+      .then(() => {
+        return userRepository.bulkCreate();
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+  };
+
   const create = ({ body }) => {
     return Promise.resolve()
       .then(() => {
@@ -30,6 +40,7 @@ module.exports = ({ userRepository, reply }) => {
   };
 
   return {
+    bulkCreate,
     create
   };
 };

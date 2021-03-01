@@ -24,8 +24,8 @@ module.exports = ({ config, basePath }) => {
   const modelsBasePath = path.join(basePath, './models');
 
   fs.readdirSync(modelsBasePath).forEach(file => {
-    const modelPath = require(path.join(modelsBasePath, file));
-    const modelRef = modelPath(firestore);
+    const model = require(path.join(modelsBasePath, file));
+    const modelRef = model(firestore);
     database.models[modelRef.name] = modelRef.model;
   });
 

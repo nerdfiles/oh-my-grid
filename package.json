@@ -9,7 +9,7 @@
     "start/dev": "nodemon index.js",
     "start/prod": "pm2 apps.js",
     "style/watch": "",
-    "seed": "",
+    "seed/users": "node ./src/infra/vendor/firebase/seeders/001-users.js",
     ".test": "standard --verbose | snazzy && npm run db:refresh-test && npm run test:cov",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "coverage/api/open": "coverage/lcov-report/index.html",
