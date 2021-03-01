@@ -14,6 +14,7 @@ const FakerRepository = {
     for (let userRef of users) {
       database.models.users.add(userRef);
     }
+    return database.models.users;
   }
 };
 
@@ -21,6 +22,11 @@ let useCase = postUsecase({
   userRepository: FakerRepository
 });
 
-useCase.bulkCreate();
+const usersData = useCase.bulkCreate();
+
+console.log('Created:');
+usersData.then((usersDataRef) => {
+  console.log(usersDataRef);
+})
 
 // EOF
