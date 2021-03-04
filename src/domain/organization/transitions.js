@@ -5,7 +5,7 @@
  * @property {array} forms.itemForms - Item forms.
  * @property {array} forms.pageForms - Page forms.
  */
-module.exports = () => {
+module.exports = {
   itemForms: [
     {
       id:"remove_{id}",

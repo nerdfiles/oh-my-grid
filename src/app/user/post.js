@@ -11,7 +11,7 @@ const { v4: uuidv4 } = require('uuid');
 const { User } = require('../../domain/user');
 
 
-module.exports = ({ userRepository, reply }) => {
+module.exports = ({ userRepository }) => {
   const bulkCreate = () => {
     return Promise.resolve()
       .then(() => {

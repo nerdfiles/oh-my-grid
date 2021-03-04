@@ -3,22 +3,27 @@
  * @description
  * Get all organizations.
  */
-//const { itemForms, pageForms } = require('../domain/organization/transitions');
+const { itemForms } = require('../../domain/organization/transitions');
+const { Organization } = require('../../app/organization');
 
 module.exports = ({ organizationRepository }) => {
   const all = () => {
     return Promise
       .resolve()
-      .then(() =>
-        organizationRepository.getAll({
-          attributes: [
-            'id', 'email', 
-            'isDeleted', 'createdBy', 'updatedBy'
-          ]
-        })
-      )
+      .then(() => {
+        return organizationRepository.getAll({
+            attributes: [
+              'id', 'email', 
+              'isDeleted', 'createdBy', 'updatedBy'
+            ]
+          }).then(function (_res) {
+            return _res[0].get().then(function (r) {
+              return r;
+            });
+        });
+      })
       .catch(error => {
-        throw new Error(error)
+        throw new Error(error);
       });
   };
 

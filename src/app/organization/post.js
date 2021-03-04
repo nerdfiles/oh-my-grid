@@ -1,12 +1,15 @@
 /**
  * @module app/organization/post
  * @description
+ * Apply transitions here to response from vendor database before passing into 
+ * router.
  */
 const { v4: uuidv4 } = require('uuid');
 const { Organization } = require('../../domain/organization');
+const { itemForms } = require('../../domain/organization/transitions');
 
 
-module.exports = ({ organizationRepository, reply }) => {
+module.exports = ({ organizationRepository }) => {
   const create = ({ body }) => {
     return Promise.resolve()
       .then(() => {
@@ -15,7 +18,11 @@ module.exports = ({ organizationRepository, reply }) => {
           id: id
         });
         const organization = Organization(entity);
-        return organizationRepository.create(organization);
+        var res = {
+          data: organizationRepository.create(organization),
+          links: itemForms
+        };
+        return res;
       })
       .catch((error) => {
         throw new Error(error);

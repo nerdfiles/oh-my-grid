@@ -24,8 +24,6 @@ module.exports = ({
  *         format: uuid
  *       email:
  *         type: string
- *       roleId:
- *         type: number
  *       isDeleted:
  *         type: number
  *       createdBy:

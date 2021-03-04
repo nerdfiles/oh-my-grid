@@ -1,9 +1,10 @@
 /**
- *
+ * @module infrastructure/vendor/firebase/seeders/001-users.js
  */
 const Faker = require('../../../support/fakers');
 const container = require('../../../../container');
 const postUsecase = require('../../../../app/user/post');
+
 
 const { database } = container.cradle;
 
@@ -18,15 +19,20 @@ const FakerRepository = {
   }
 };
 
-let useCase = postUsecase({
-  userRepository: FakerRepository
-});
+const initSeed = () => {
+  let useCase = postUsecase({
+    userRepository: FakerRepository
+  });
 
-const usersData = useCase.bulkCreate();
+  const usersData = useCase.bulkCreate();
 
-console.log('Created:');
-usersData.then((usersDataRef) => {
-  console.log(usersDataRef);
-})
+  console.log('Created:');
+  usersData.then((usersDataRef) => {
+    console.log(usersDataRef);
+  });
+};
+
+
+initSeed();
 
 // EOF
