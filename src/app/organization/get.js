@@ -7,6 +7,17 @@ const { itemForms } = require('../../domain/organization/transitions');
 const { Organization } = require('../../app/organization');
 
 module.exports = ({ organizationRepository }) => {
+
+  const transitionItem = () => {
+    return Promise
+      .resolve()
+      .then(() => {
+        return itemForms.map((itemRef) => {
+          return itemRef;
+        });
+      })
+  };
+
   const all = () => {
     return Promise
       .resolve()
@@ -16,8 +27,10 @@ module.exports = ({ organizationRepository }) => {
               'id', 'email', 
               'isDeleted', 'createdBy', 'updatedBy'
             ]
-          }).then(function (_res) {
+          }).then(async function (_res) {
+            const itemFormList = await transitionItem();
             return _res[0].get().then(function (r) {
+              r.itemFormList = itemFormList;
               return r;
             });
         });
@@ -26,16 +39,6 @@ module.exports = ({ organizationRepository }) => {
         throw new Error(error);
       });
   };
-
-  // const transitionItem = () => {
-  //   return Promise
-  //     .resolve()
-  //     .then(() => {
-  //       return itemForms.map((itemRef) => {
-  //         return itemRef;
-  //       });
-  //     })
-  // };
 
   return {
     all

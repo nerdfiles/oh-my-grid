@@ -61,6 +61,7 @@
     "passport-jwt": "^4.0.0",
     "pryjs": "^1.0.3",
     "ramda": "^0.27.1",
+    "requirejs-metagen": "^1.2.13",
     "supertest": "^6.1.3",
     "swagger-jsdoc": "^3.2.9",
     "tcomb": "^3.2.29",
