@@ -8,6 +8,16 @@ const { v4: uuidv4 } = require('uuid');
 const { Organization } = require('../../domain/organization');
 const { itemForms } = require('../../domain/organization/transitions');
 
+const replaceId = (_itemForms, entity) => {
+  _itemForms.forEach(function (itemRef, key) {
+    Object.keys(itemRef).forEach(function (keyRef) {
+      if (itemRef[keyRef].includes('{id}')) {
+        itemRef[keyRef] = itemRef[keyRef].replace(/{id}/, entity.id);
+      }
+    });
+  });
+  return _itemForms;
+}
 
 module.exports = ({ organizationRepository }) => {
   const create = ({ body }) => {
@@ -17,12 +27,22 @@ module.exports = ({ organizationRepository }) => {
         const entity = Object.assign({}, body, {
           id: id
         });
+
+        let _itemForms = replaceId(itemForms, entity);
+
         const organization = Organization(entity);
-        var res = {
-          data: organizationRepository.create(organization),
-          links: itemForms
-        };
-        return res;
+
+        let o = organizationRepository.create(organization);
+        return o.then((d) => {
+          let _res = Object.assign({}, {
+            class: ['organization'],
+            properties: d,
+            entities: [],
+            actions: _itemForms,
+            links: []
+          });
+          return _res;
+        });
       })
       .catch((error) => {
         throw new Error(error);

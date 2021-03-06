@@ -3,7 +3,7 @@
  * @description
  * Validate for refresh token.
  */
-const Token = require('../../domain/token');
+const { Token } = require('../../domain/token');
 
 
 module.exports = ({ userRepository, webToken }) => {
@@ -11,10 +11,10 @@ module.exports = ({ userRepository, webToken }) => {
     return new Promise(async (resolve, reject) => {
       try {
         const credentials = Token(body);
+        console.log(credentials);
         const userCredentials = await userRepository.findByEmail({
           attributes: [
-            'id', 'firstName', 'lastName', 'middleName', 'email', 'password', 
-            'roleId', 'isDeleted', 'createdBy'
+            'email', 'password'
           ],
           where: {
             email: credentials.email,

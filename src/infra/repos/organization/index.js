@@ -29,7 +29,9 @@ module.exports = ({ model, database }) => {
    * @returns {object}
    */
   const create = async (...args) => {
-    return await model.add(...args);
+    let docRef = await model.doc(args[0].id);
+    let _createdOrganization = await docRef.set(args[0]);
+    return args[0];
   };
 
   /**

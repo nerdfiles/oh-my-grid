@@ -14,6 +14,9 @@ module.exports = ({ config, basePath }) => {
     credential: admin.credential.cert(serviceAccount)
   });
   const firestore = admin.firestore();
+  firestore.settings({
+    ignoreUndefinedProperties: true
+  });
 
   const database = {
     firestore,

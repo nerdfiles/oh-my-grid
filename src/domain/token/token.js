@@ -1,8 +1,9 @@
 /**
  * @module domain/token/token
  */
-
 const t = require('tcomb');
+const { compose } = require('ramda');
+const { cleanData } = require('../helper.js');
 
 
 const Token = t.struct({
@@ -12,6 +13,9 @@ const Token = t.struct({
 });
 
 
-module.exports = Token;
+module.exports = compose(
+  cleanData,
+  Token
+);
 
 // EOF
