@@ -64,6 +64,15 @@ module.exports = ({ model, database }) => {
     .get();
 
   /**
+   * @name findOneAdmin
+   * @returns {object}
+   */
+  const findOneAdmin = async () => await model
+    .where('role', '==', 'admin')
+    .limit(1)
+    .get();
+
+  /**
    * @name validatePassword
    * @returns {boolean}
    */
@@ -90,6 +99,7 @@ module.exports = ({ model, database }) => {
     update,
     findById,
     findByEmail,
+    findOneAdmin,
     findOne,
     securePassword,
     validatePassword,
