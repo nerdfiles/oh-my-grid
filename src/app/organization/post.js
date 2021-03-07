@@ -8,14 +8,33 @@
 const { v4: uuidv4 } = require('uuid');
 const { Organization } = require('../../domain/organization');
 const { itemForms } = require('../../domain/organization/transitions');
-const pryjs = require('pryjs');
+const linkForms = {
+  self: 'http://localhost:4000/api/organization/{id}'
+};
+
 
 /**
- * @function generateLinks
+ * @function generateLinksForItem
  * @static
  * @returns {array}
  */
-const generateLinks = (context) => ([]);
+const generateLinksForItem = (entityContext) => {
+	let host = 'http://localhost:4000';
+  let _list = [];
+  Object.keys(linkForms).forEach((keyRef) => {
+    if (linkForms[keyRef].includes('{id}')) {
+      linkForms[keyRef] = linkForms[keyRef].replace(/{id}/, entityContext.id);
+    }
+		if (linkForms[keyRef].includes('{fullhost}')) {
+			linkForms[keyRef] = linkForms[keyRef].replace(/{fullhost}/, host);
+		}
+    _list.push({
+      rel: [keyRef],
+      href: linkForms[keyRef]
+    })
+  });
+  return _list;
+};
 
 /**
  * @function generateClassList
@@ -34,7 +53,13 @@ const generateEntities = (repo) => {
     .then((documentSnapshots) => {
       return documentSnapshots.map((doc) => {
         if (doc.exists) {
-          return doc.data();
+          let data = doc.data()
+          return {
+            class: ['items collection'],
+            rel: [''],
+            properties: data,
+            links: []
+          };
         }
       });
   });
@@ -46,10 +71,14 @@ const generateEntities = (repo) => {
  * @returns {array}
  */
 const generateActions = (_itemForms, entity) => {
+	let host = 'http://localhos:4000/api/organizations';
   _itemForms.forEach(function (itemRef, key) {
     Object.keys(itemRef).forEach(function (keyRef) {
       if (itemRef[keyRef].includes('{id}')) {
         itemRef[keyRef] = itemRef[keyRef].replace(/{id}/, entity.id);
+      }
+      if (itemRef[keyRef].includes('{fullhost}')) {
+        itemRef[keyRef] = itemRef[keyRef].replace(/{fullhost}/, host);
       }
     });
   });
@@ -74,13 +103,13 @@ module.exports = ({ organizationRepository, placeRepository }) => {
 
         const organization = Organization(entity);
         return organizationRepository.create(organization)
-          .then(async (organizationRef) => {
+          .then(async (entityRef) => {
             let relatedEntities = await generateEntities(placeRepository);
             let classList = generateClassList();
-            let linkRelations = generateLinks();
+            let linkRelations = generateLinksForItem(entityRef);
             return Object.assign({}, {
               class: classList,
-              properties: organizationRef,
+              properties: entityRef,
               entities: relatedEntities,
               actions: actionsList,
               links: linkRelations
