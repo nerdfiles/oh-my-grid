@@ -22,18 +22,25 @@ module.exports = ({ organizationRepository }) => {
     return Promise
       .resolve()
       .then(() => {
-        return organizationRepository.getAll({
-            attributes: [
-              'id', 'email', 
-              'isDeleted', 'createdBy', 'updatedBy'
-            ]
-          }).then(async function (_res) {
-            const itemFormList = await transitionItem();
-            return _res[0].get().then(function (r) {
-              r.itemFormList = itemFormList;
-              return r;
-            });
-        });
+        return organizationRepository._getAll();
+        // return organizationRepository.listAll().then((dataRef) => {
+        //   dataRef.forEach((ref) => {
+        //     console.log(ref);
+        //   });
+        //   return dataRef;
+        // });
+        // return organizationRepository.getAll({
+        //     attributes: [
+        //       'id', 'email', 
+        //       'isDeleted', 'createdBy', 'updatedBy'
+        //     ]
+        //   }).then(async function (_res) {
+        //     const itemFormList = await transitionItem();
+        //     return _res[0].get().then(function (r) {
+        //       r.itemFormList = itemFormList;
+        //       return r;
+        //     });
+        // });
       })
       .catch(error => {
         throw new Error(error);

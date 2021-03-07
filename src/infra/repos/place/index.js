@@ -15,8 +15,7 @@ module.exports = ({ model, database }) => {
    */
   const _getAll = async (...args) => 
     await model
-      .listDocuments().then((docRefs) => database.firestore.getAll(docRefs));
-
+      .listDocuments().then((docRefs) => database.firestore.getAll(...docRefs));
   
   /**
    * @name getAll

@@ -5,7 +5,6 @@
  */
 const { toEntity } = require('./transform');
 const { encryptPassword, comparePassword } = require('../../encryption');
-const pry = require('pryjs');
 
 
 module.exports = ({ model, database }) => {
@@ -16,8 +15,12 @@ module.exports = ({ model, database }) => {
    */
   const getAll = async (...args) => 
     await model
-      .listDocuments().then((docRefs) => database.firestore.getAll(docRefs));
+      .listDocuments().then((docRefs) => database.firestore.getAll(...docRefs));
 
+  /**
+   * @name bulkCreate
+   * @returns {object}
+   */
   const bulkCreate = async (...args) => {
     return await model;
   };

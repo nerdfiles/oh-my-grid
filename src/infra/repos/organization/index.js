@@ -15,7 +15,14 @@ module.exports = ({ model, database }) => {
    */
   const _getAll = async (...args) => 
     await model
-      .listDocuments().then((docRefs) => database.firestore.getAll(docRefs));
+      .listDocuments().then((docRefs) => database.firestore.getAll(...docRefs));
+
+  /**
+   * @name list
+   * @returns {Object}
+   */
+  const listAll = async () =>
+    await model.listDocuments();
 
   /**
    * @name getAll
@@ -86,7 +93,9 @@ module.exports = ({ model, database }) => {
     await model.doc(args.id).delete();
 
   return {
+    _getAll,
     getAll,
+    listAll,
     create,
     update,
     findById,
