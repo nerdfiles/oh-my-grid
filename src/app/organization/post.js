@@ -1,4 +1,5 @@
 /**
+ * @namespace Organization
  * @module app/organization/post
  * @description
  * Apply transitions here to response from vendor database before passing into 
@@ -11,18 +12,21 @@ const pryjs = require('pryjs');
 
 /**
  * @function generateLinks
+ * @static
  * @returns {array}
  */
 const generateLinks = (context) => ([]);
 
 /**
  * @function generateClassList
+ * @static
  * @returns {array}
  */
 const generateClassList = (context) => (['organization']);
 
 /**
  * @function generateEntities
+ * @static
  * @returns {array}
  */
 const generateEntities = (repo) => {
@@ -38,6 +42,7 @@ const generateEntities = (repo) => {
 
 /**
  * @function generateActions
+ * @static
  * @returns {array}
  */
 const generateActions = (_itemForms, entity) => {
@@ -53,8 +58,8 @@ const generateActions = (_itemForms, entity) => {
 
 module.exports = ({ organizationRepository, placeRepository }) => {
   /**
-   * @name create
-   * @public
+   * @function create
+   * @memberof Organization
    * @returns {undefined}
    */
   const create = ({ body }) => {
