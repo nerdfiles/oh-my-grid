@@ -7,7 +7,9 @@ const {
   isNil, 
   pickBy 
 } = require('ramda');
-
+const linkForms = {
+  self: 'http://localhost:4000/api/organization/{id}'
+};
 
 const notNull = compose(complement(isNil));
 
