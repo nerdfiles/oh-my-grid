@@ -17,6 +17,9 @@ const Place = t.struct({
 });
 
 
-module.exports = compose(cleanData, Place);
+module.exports = compose(
+  cleanData,
+  Place
+);
 
 // EOF

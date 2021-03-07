@@ -4,19 +4,25 @@
  * Repo/methods for places.
  */
 const { toEntity } = require('./transform');
-const { encryptPassword, comparePassword } = require('../../encryption');
-//const pry = require('pryjs');
 
 
 module.exports = ({ model, database }) => {
 
   /**
    * @name getAll
-   * @returns {object}
+   * @param {Object} args - Firestore clause (where, etc.); 
+   * @returns {Object}
    */
-  const getAll = async (...args) => 
+  const _getAll = async (...args) => 
     await model
       .listDocuments().then((docRefs) => database.firestore.getAll(docRefs));
+
+  
+  /**
+   * @name getAll
+   * @returns {Promise}
+   */
+  const getAll = async () => await model;
 
   /**
    * @name create
@@ -60,10 +66,7 @@ module.exports = ({ model, database }) => {
     create,
     update,
     findById,
-    findByEmail,
     findOne,
-    securePassword,
-    validatePassword,
     destroy
   };
 };

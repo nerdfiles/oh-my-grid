@@ -1,7 +1,7 @@
 /**
  * @module infrastructure/database/schema
  */
-modulex.exports = {
+module.exports = () => {
   const User = require('./user');
   return {
     User

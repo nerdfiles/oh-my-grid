@@ -7,8 +7,12 @@
 const { v4: uuidv4 } = require('uuid');
 const { Organization } = require('../../domain/organization');
 const { itemForms } = require('../../domain/organization/transitions');
+const pryjs = require('pryjs');
 
-const replaceId = (_itemForms, entity) => {
+const generateLinks = (context) => ([]);
+const generateClassList = (context) => (['organization']);
+
+const generateActions = (_itemForms, entity) => {
   _itemForms.forEach(function (itemRef, key) {
     Object.keys(itemRef).forEach(function (keyRef) {
       if (itemRef[keyRef].includes('{id}')) {
@@ -17,9 +21,19 @@ const replaceId = (_itemForms, entity) => {
     });
   });
   return _itemForms;
-}
+};
 
-module.exports = ({ organizationRepository }) => {
+module.exports = ({ organizationRepository, placeRepository }) => {
+
+  const generateEntities = async (repo) => {
+    let list = await repo.getAll();
+    list.forEach((d) => {
+      console.log(d.id)
+      console.log({d});
+    })
+    return list;
+  };
+
   const create = ({ body }) => {
     return Promise.resolve()
       .then(() => {
@@ -28,21 +42,22 @@ module.exports = ({ organizationRepository }) => {
           id: id
         });
 
-        let _itemForms = replaceId(itemForms, entity);
+        let actionsList = generateActions(itemForms, entity);
 
         const organization = Organization(entity);
-
-        let o = organizationRepository.create(organization);
-        return o.then((d) => {
-          let _res = Object.assign({}, {
-            class: ['organization'],
-            properties: d,
-            entities: [],
-            actions: _itemForms,
-            links: []
+        return organizationRepository.create(organization)
+          .then(async (organizationRef) => {
+            let relatedEntities = await generateEntities(placeRepository);
+            let classList = generateClassList();
+            let linkRelations = generateLinks();
+            return Object.assign({}, {
+              class: classList,
+              properties: organizationRef,
+              entities: relatedEntities,
+              actions: actionsList,
+              links: linkRelations
+            });
           });
-          return _res;
-        });
       })
       .catch((error) => {
         throw new Error(error);

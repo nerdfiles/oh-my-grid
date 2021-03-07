@@ -10,7 +10,7 @@
  * application as a computational occasion mutates the ingress of the transcendental 
  * conditions of its own self-actualization.
  */
-const { Place } = require('src/domain/place');
+const { Place } = require('../../../domain/place');
 
 
 const toEntity = Place;
@@ -19,4 +19,5 @@ const toEntity = Place;
 module.exports = {
   toEntity
 };
+
 // EOF

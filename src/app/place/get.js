@@ -9,10 +9,16 @@ module.exports = ({ placeRepository }) => {
       .resolve()
       .then(() => placeRepository.getAll({
         attributes: [
-          'id', 'isDeleted', 'createdBy', 'updatedBy',
-          'latitude', 'longitude'
+          'id', 'latitude', 'longitude'
         ]
-      }))
+      })
+      .then(async (_res) => {
+        return _res[0].get().then((r) => {
+          console.log(r);
+          return r;
+        });
+      })
+      )
       .catch(error => {
         throw new Error(error);
       })

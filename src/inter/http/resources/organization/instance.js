@@ -10,11 +10,12 @@ const { post, get } = require('../../../../app/organization');
 module.exports = () => {
   const { 
     repository: {
-      organizationRepository
+      organizationRepository,
+      placeRepository
     }
   } = container.cradle;
 
-  const postUseCase = post({ organizationRepository });
+  const postUseCase = post({ organizationRepository, placeRepository });
   const getUseCase = get({ organizationRepository });
 
   return {

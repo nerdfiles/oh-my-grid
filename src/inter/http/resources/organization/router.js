@@ -78,7 +78,6 @@ module.exports = ({
       postUseCase
         .create({ body: req.body })
         .then(data => {
-          console.log(data);
           res.status(Status.OK).json(Success(data));
         })
         .catch((error) => {
