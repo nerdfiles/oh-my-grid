@@ -25,13 +25,15 @@ const generateClassList = (context) => (['organization']);
  * @function generateEntities
  * @returns {array}
  */
-const generateEntities = async (repo) => {
-  let list = await repo.getAll();
-  list.forEach((d) => {
-    console.log(d.id)
-    console.log({d});
-  })
-  return list;
+const generateEntities = (repo) => {
+  return repo.getAll()
+    .then((documentSnapshots) => {
+      return documentSnapshots.map((doc) => {
+        if (doc.exists) {
+          return doc.data();
+        }
+      });
+  });
 };
 
 /**
@@ -69,6 +71,7 @@ module.exports = ({ organizationRepository, placeRepository }) => {
         return organizationRepository.create(organization)
           .then(async (organizationRef) => {
             let relatedEntities = await generateEntities(placeRepository);
+            console.log(relatedEntities);
             let classList = generateClassList();
             let linkRelations = generateLinks();
             return Object.assign({}, {

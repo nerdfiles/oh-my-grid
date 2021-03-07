@@ -7,18 +7,14 @@ module.exports = ({ placeRepository }) => {
   const all = () => {
     return Promise
       .resolve()
-      .then(() => placeRepository.getAll({
-        attributes: [
-          'id', 'latitude', 'longitude'
-        ]
-      })
-      .then(async (_res) => {
-        return _res[0].get().then((r) => {
-          console.log(r);
-          return r;
+      .then(() => placeRepository.getAll()
+      .then((documentSnapshots) => {
+        return documentSnapshots.map((doc) => {
+          if (doc.exists) {
+            return doc.data();
+          }
         });
-      })
-      )
+      }))
       .catch(error => {
         throw new Error(error);
       })

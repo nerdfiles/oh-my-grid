@@ -21,7 +21,9 @@ module.exports = ({ model, database }) => {
    * @name getAll
    * @returns {Promise}
    */
-  const getAll = async () => await model;
+  const getAll = async () =>
+    await model.listDocuments()
+      .then((docRefs) => database.firestore.getAll(...docRefs));
 
   /**
    * @name create
