@@ -10,27 +10,12 @@ const { encryptPassword, comparePassword } = require('../../encryption');
 module.exports = ({ model, database }) => {
 
   /**
-   * @name _getAll
-   * @returns {object}
-   */
-  const _getAll = async (...args) => 
-    await model
-      .listDocuments().then((docRefs) => database.firestore.getAll(...docRefs));
-
-  /**
-   * @name list
-   * @returns {Object}
-   */
-  const listAll = async () =>
-    await model.listDocuments();
-
-  /**
    * @name getAll
    * @returns {object}
    */
-  const getAll = async () => {
-    return await model.listDocuments().then((docRefs) => docRefs.data());
-  };
+  const getAll = async () => 
+    await model.listDocuments()
+      .then((docRefs) => database.firestore.getAll(...docRefs));
 
   /**
    * @name create
@@ -94,9 +79,7 @@ module.exports = ({ model, database }) => {
     await model.doc(args.id).delete();
 
   return {
-    _getAll,
     getAll,
-    listAll,
     create,
     update,
     findById,

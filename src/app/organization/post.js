@@ -9,9 +9,35 @@ const { Organization } = require('../../domain/organization');
 const { itemForms } = require('../../domain/organization/transitions');
 const pryjs = require('pryjs');
 
+/**
+ * @function generateLinks
+ * @returns {array}
+ */
 const generateLinks = (context) => ([]);
+
+/**
+ * @function generateClassList
+ * @returns {array}
+ */
 const generateClassList = (context) => (['organization']);
 
+/**
+ * @function generateEntities
+ * @returns {array}
+ */
+const generateEntities = async (repo) => {
+  let list = await repo.getAll();
+  list.forEach((d) => {
+    console.log(d.id)
+    console.log({d});
+  })
+  return list;
+};
+
+/**
+ * @function generateActions
+ * @returns {array}
+ */
 const generateActions = (_itemForms, entity) => {
   _itemForms.forEach(function (itemRef, key) {
     Object.keys(itemRef).forEach(function (keyRef) {
@@ -24,16 +50,11 @@ const generateActions = (_itemForms, entity) => {
 };
 
 module.exports = ({ organizationRepository, placeRepository }) => {
-
-  const generateEntities = async (repo) => {
-    let list = await repo.getAll();
-    list.forEach((d) => {
-      console.log(d.id)
-      console.log({d});
-    })
-    return list;
-  };
-
+  /**
+   * @name create
+   * @public
+   * @returns {undefined}
+   */
   const create = ({ body }) => {
     return Promise.resolve()
       .then(() => {

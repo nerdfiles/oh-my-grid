@@ -22,35 +22,14 @@ module.exports = ({ organizationRepository }) => {
     return Promise
       .resolve()
       .then(() => {
-        return organizationRepository._getAll({
-          attributes: [
-            'id', 'email'
-          ]
-        })
-        .then(docs => {
-          for (let i of docs) {
-            console.log(i.get());
-          }
-          return docs;
-        });
-        // return organizationRepository.listAll().then((dataRef) => {
-        //   dataRef.forEach((ref) => {
-        //     console.log(ref);
-        //   });
-        //   return dataRef;
-        // });
-        // return organizationRepository.getAll({
-        //     attributes: [
-        //       'id', 'email', 
-        //       'isDeleted', 'createdBy', 'updatedBy'
-        //     ]
-        //   }).then(async function (_res) {
-        //     const itemFormList = await transitionItem();
-        //     return _res[0].get().then(function (r) {
-        //       r.itemFormList = itemFormList;
-        //       return r;
-        //     });
-        // });
+        return organizationRepository.getAll()
+          .then((documentSnapshots) => {
+            return documentSnapshots.map((doc) => {
+              if (doc.exists) {
+                return doc.data();
+              }
+            });
+          });
       })
       .catch(error => {
         throw new Error(error);
