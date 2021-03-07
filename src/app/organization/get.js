@@ -22,7 +22,17 @@ module.exports = ({ organizationRepository }) => {
     return Promise
       .resolve()
       .then(() => {
-        return organizationRepository._getAll();
+        return organizationRepository._getAll({
+          attributes: [
+            'id', 'email'
+          ]
+        })
+        .then(docs => {
+          for (let i of docs) {
+            console.log(i.get());
+          }
+          return docs;
+        });
         // return organizationRepository.listAll().then((dataRef) => {
         //   dataRef.forEach((ref) => {
         //     console.log(ref);

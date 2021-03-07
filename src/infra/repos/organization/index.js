@@ -28,8 +28,9 @@ module.exports = ({ model, database }) => {
    * @name getAll
    * @returns {object}
    */
-  const getAll = async (...args) => 
-    await model.listDocuments();
+  const getAll = async () => {
+    return await model.listDocuments().then((docRefs) => docRefs.data());
+  };
 
   /**
    * @name create
