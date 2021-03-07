@@ -71,7 +71,6 @@ module.exports = ({ organizationRepository, placeRepository }) => {
         return organizationRepository.create(organization)
           .then(async (organizationRef) => {
             let relatedEntities = await generateEntities(placeRepository);
-            console.log(relatedEntities);
             let classList = generateClassList();
             let linkRelations = generateLinks();
             return Object.assign({}, {

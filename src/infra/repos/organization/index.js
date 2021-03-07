@@ -24,7 +24,14 @@ module.exports = ({ model, database }) => {
   const create = async (...args) => {
     let docRef = await model.doc(args[0].id);
     let _createdOrganization = await docRef.set(args[0]);
-    return args[0];
+    let docData = docRef.get().then((documentSnapshot) => {
+      let data = documentSnapshot.data();
+      console.log(data);
+      return data;
+    })
+    var postedData = args[0];
+
+    return docData;
   };
 
   /**
