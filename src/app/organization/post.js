@@ -8,6 +8,7 @@
 const { v4: uuidv4 } = require('uuid');
 const { Organization } = require('../../domain/organization');
 const { itemForms } = require('../../domain/organization/transitions');
+const { itemRelations } = require('../../domain/organization/relations');
 const linkForms = {
   self: 'http://localhost:4000/api/organization/{id}'
 };
