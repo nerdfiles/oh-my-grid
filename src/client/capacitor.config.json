@@ -1,0 +1,13 @@
+{
+  "appId": "com.mobile.ohMyGrid",
+  "appName": "angular-folder-structure",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

@@ -11,7 +11,7 @@ export class JsonApiService {
     switch (url) {
       case '/projects':
         return of(data.projects);
-      default: 
+      default:
         const id = url.substring(url.lastIndexOf('/') + 1);
         return of(data.projects[id]);
     }

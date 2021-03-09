@@ -47,6 +47,9 @@
     "@angular/platform-browser": "^11.2.0",
     "@angular/platform-browser-dynamic": "^11.2.0",
     "@angular/router": "^11.2.0",
+    "@capacitor/angular": "^1.0.3",
+    "@capacitor/core": "latest",
+    "@capacitor/ios": "^2.4.7",
     "@fortawesome/angular-fontawesome": "^0.6.0",
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -107,6 +110,7 @@
     "@angular-eslint/schematics": "1.2.0",
     "@angular-eslint/template-parser": "1.2.0",
     "@typescript-eslint/eslint-plugin": "4.3.0",
-    "@typescript-eslint/parser": "4.3.0"
+    "@typescript-eslint/parser": "4.3.0",
+    "@capacitor/cli": "latest"
   }
 }
