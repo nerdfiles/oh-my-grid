@@ -27,10 +27,16 @@ module.exports = ({ model, database }) => {
 
   /**
    * @name create
+   * @param {object} args - Payload to post to create a resource.
    * @returns {object}
    */
   const create = async (...args) => {
-    return await model.add(...args);
+    let payload = args[0];
+    let docRef = await model.doc(payload.id);
+    await docRef.set(payload);
+    return docRef.get().then((documentSnapshot) => {
+      return documentSnapshot.data();
+    })
   };
 
   /**
