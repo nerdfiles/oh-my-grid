@@ -14,7 +14,6 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { AuthModule } from '@modules/auth/auth.module';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GraphComponent } from './graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { GraphComponent } from './graph/graph.component';
     ContentLayoutComponent,
     NavComponent,
     FooterComponent,
-    AuthLayoutComponent,
-    GraphComponent
+    AuthLayoutComponent
   ],
   imports: [
     // angular
