@@ -51,7 +51,7 @@ const generateClassList = (context) => (['organization']);
 
 /**
  * @function generateEntities
- * @static
+ * @param {object} repo Repostory for generating entities under a resource.
  * @returns {array}
  */
 const generateEntities = (repo) => {

@@ -9,11 +9,13 @@ const postUsecase = require('../../../../app/user/post');
 const { database } = container.cradle;
 
 const FakerRepository = {
-  bulkCreate: () => {
+  bulkCreate: async () => {
     console.log('Bulk creating users...');
     const users = Faker('users');
     for (let userRef of users) {
-      database.models.users.add(userRef);
+      //database.models.users.add(userRef);
+      let docRef = database.models.users.doc(userRef.id);
+      await docRef.set(userRef);
     }
     return database.models.users;
   }
@@ -26,10 +28,16 @@ const initSeed = () => {
 
   const usersData = useCase.bulkCreate();
 
-  console.log('Created:');
+  console.log('Created list of users:');
   usersData.then((usersDataRef) => {
-    console.log(usersDataRef);
-  });
+    usersDataRef.onSnapshot((d) => {
+      d.forEach((ref) => {
+        console.log(ref.data());
+      });
+      process.exit(0);
+    });
+  })
+  .catch(e => console.error(e));
 };
 
 
