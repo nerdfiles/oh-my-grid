@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { tap, delay, finalize, catchError } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { ApiService } from '@data/service/api.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit, OnDestroy {
   error: string;
   isLoading: boolean;
   registerForm: FormGroup;
@@ -25,6 +25,8 @@ export class RegisterComponent {
   ) {
     this.buildForm();
   }
+
+  ngOnInit() {}
 
   get f() {
     return this.registerForm.controls;
