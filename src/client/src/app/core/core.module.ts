@@ -12,6 +12,7 @@ import { TokenInterceptor } from './interceptor/token.interceptor';
   providers: [
     AuthGuard,
     NoAuthGuard,
+    ModuleImport,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
