@@ -31,7 +31,8 @@ module.exports = ({ config, logger, database }) => {
   apiRouter
     .use(cors({
       origin: [
-        'http://localhost:4200'
+        'http://localhost:4200',
+        'capacitor://localhost'
       ],
       methods: [
         'HEAD',
