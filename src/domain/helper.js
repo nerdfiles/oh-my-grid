@@ -23,10 +23,11 @@ const cleanData = (entity) => pickBy(notNull, entity);
 const generateLinksForItem = (entityContext, type, entityName) => {
   const relations = require(`./${entityName}/relations.js`)
   const namespace = type + 'Relations';
-  const itemRelations = relations[namespace];
+  const _relations = relations[namespace];
   let host = 'http://localhost:4000';
+  let token, eventToken;
   let _list = [];
-  itemRelations.forEach((relRef) => {
+  _relations.forEach((relRef) => {
     Object.keys(relRef).forEach((keyRef) => {
       if (relRef[keyRef].includes('{id}')) {
         relRef[keyRef] = relRef[keyRef].replace(/{id}/, entityContext.id);
@@ -37,11 +38,14 @@ const generateLinksForItem = (entityContext, type, entityName) => {
       if (relRef[keyRef].includes('{token}')) {
         relRef[keyRef] = relRef[keyRef].replace(/{token}/, token);
       }
+      if (relRef[keyRef].includes('{eventToken}')) {
+        relRef[keyRef] = relRef[keyRef].replace(/{eventToken}/, eventToken);
+      }
       _list.push({
         rel: keyRef,
         href: relRef[keyRef]
-      })
-    })
+      });
+    });
   });
   return _list;
 };
@@ -80,8 +84,8 @@ const generateEntities = (repo) => {
  * @static
  * @returns {array}
  */
-const generateActions = (_itemForms, entity) => {
-	let host = 'http://localhos:4000/api/organizations';
+const generateActions = (_itemForms, entity, entityName) => {
+	let host = `http://localhost:4000/api/${entityName}`;
   _itemForms.forEach(function (itemRef, key) {
     Object.keys(itemRef).forEach(function (keyRef) {
       if (itemRef[keyRef].includes('{id}')) {
@@ -89,6 +93,15 @@ const generateActions = (_itemForms, entity) => {
       }
       if (itemRef[keyRef].includes('{fullhost}')) {
         itemRef[keyRef] = itemRef[keyRef].replace(/{fullhost}/, host);
+      }
+      if (itemRef.hasOwnProperty('properties')) {
+        itemRef.properties.forEach((p) => {
+          Object.keys(p).forEach((k) => {
+            if (p[k].includes('{status}')) {
+              p[k] = p[k].replace(/{status}/, 'pending');
+            }
+          });
+        });
       }
     });
   });

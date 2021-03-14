@@ -21,7 +21,7 @@ module.exports = {
        id:"self",
        name:"self",
        href:"{fullurl}",
-       rel: "self colllection api",
+       rel: "self collection api",
        tags: "collection api self home list item",
        title: "Self",
        method: "GET",

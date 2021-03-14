@@ -31,7 +31,7 @@ module.exports = ({ organizationRepository, placeRepository }) => {
           id: id
         });
 
-        let actionsList = generateActions(itemForms, entity);
+        let actionsList = generateActions(itemForms, entity, 'organizations');
 
         const organization = Organization(entity);
         return organizationRepository.create(organization)

@@ -4,37 +4,31 @@
  */
 module.exports = {
   collectionRelations: [
-    { self: '{fullhost}/api/organization' },
-    { prev: '{fullhost}/api/organization?page={page}' },
-    { next: '{fullhost}/api/organization?page={page}' }
+    { self: '{fullhost}/api/organizations' },
+    { prev: '{fullhost}/api/organizations?page={page}' },
+    { next: '{fullhost}/api/organizations?page={page}' }
   ],
   itemRelations: [
-    { self: '{fullhost}/api/organization/{id}' },
-    { prev: '{fullhost}/api/organization/{id}?id={prevId}' },
-    { next: '{fullhost}/api/organization/{id}?id={nextId}' }
+    { self: '{fullhost}/api/organizations/{id}' },
+    { prev: '{fullhost}/api/organizations/{id}?id={prevId}' },
+    { next: '{fullhost}/api/organizations/{id}?id={nextId}' }
   ],
   temporalRelations: [
-    { 
-      meets: '',
-      metBy: '',
-      before: '',
-      after: ''
-    }
+    { meets: '' },
+    { metBy: '' },
+    { before: '' },
+    { after: '' }
   ],
   rhetoricalRelations: [
-    {
-      continuation: '{fullhost}/api/users/continuation?token={token}&format=svg',
-      narration: '{fullhost}/api/users/narration?token={token}',
-      elaboration: '{fullhost/api/users/elaboration?token={token}'
-    }
+    { continuation: '{fullhost}/api/organizations/continuation?eventToken={eventToken}' },
+    { narration: '{fullhost}/api/organizations/narration?eventToken={eventToken}' },
+    { elaboration: '{fullhost/api/organizations/elaboration?eventToken={eventToken}' }
   ],
   attitudinalRelations: [
-    {
-      thinks: '',
-      means: '',
-      use: '',
-      mention: ''
-    }
+    { thinks: '{fullhost}/api/organization/{id}/thinks?eventToken={eventToken}' },
+    { means: '' },
+    { use: '' },
+    { mention: '' }
   ]
 };
 
