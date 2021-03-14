@@ -39,6 +39,7 @@ module.exports = ({ organizationRepository, placeRepository }) => {
             let relatedEntities = await generateEntities(placeRepository);
             let classList = generateClassList();
             let linkRelations = generateLinksForItem(entityRef);
+
             return Object.assign({}, {
               class: classList,
               properties: entityRef,
