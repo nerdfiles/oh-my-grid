@@ -18,7 +18,10 @@ const Organization = t.struct({
   createdAt: t.maybe(t.Date),
   updatedAt: t.maybe(t.Date),
   hep: t.maybe(t.Number)
-});
+}, 'Organization');
+
+// Organization.prototype.saveToFirebase = () => {
+// };
 
 
 module.exports = compose(

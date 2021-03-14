@@ -38,7 +38,7 @@ module.exports = ({ organizationRepository, placeRepository }) => {
           .then(async (entityRef) => {
             let relatedEntities = await generateEntities(placeRepository);
             let classList = generateClassList();
-            let linkRelations = generateLinksForItem(entityRef);
+            let linkRelations = generateLinksForItem(entityRef, 'item', 'organization');
             return Object.assign({}, {
               class: classList,
               properties: entityRef,
@@ -49,6 +49,7 @@ module.exports = ({ organizationRepository, placeRepository }) => {
           });
       })
       .catch((error) => {
+        console.error(error);
         throw new Error(error);
       });
   };

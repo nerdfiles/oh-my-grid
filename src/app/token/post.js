@@ -14,13 +14,14 @@ module.exports = ({ userRepository, webToken }) => {
         console.log(credentials);
         const userCredentials = await userRepository.findByEmail({
           attributes: [
-            'email', 'password'
+            'id', 'email', 'password'
           ],
           where: {
             email: credentials.email,
             isDeleted: 0
           }
         });
+        console.log(userCredentials);
 
         const validatePass = userRepository.validatePassword(userCredentials.password);
 

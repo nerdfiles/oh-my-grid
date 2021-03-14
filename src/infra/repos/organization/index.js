@@ -48,17 +48,18 @@ module.exports = ({ model, database }) => {
    * @name findByEmail
    * @returns {object}
    */
-  const findByEmail = async (...args) => await model
-    .where('email', '==', args.email)
-    .get();
+  const findByEmail = async (...args) => 
+    await model.where('email', '==', args.email).get();
 
   /**
    * @name findOne
    * @returns {object}
    */
-  const findOne = async (...args) => await model
-    .limit(1)
-    .get();
+  const findOne = async (...args) =>
+    await model.limit(1).get();
+
+  const readContactPoint = async => {
+  };
 
   /**
    * @name validatePassword

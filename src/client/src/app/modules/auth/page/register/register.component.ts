@@ -47,6 +47,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.sub = this.apiService
       .create(_credentials)
       .pipe(
+        tap(() => this.router.navigate(['/dashboard/home'])),
         finalize(() => (this.isLoading = false)),
         catchError(error => of((this.error = error)))
       )

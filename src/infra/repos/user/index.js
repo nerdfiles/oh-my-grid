@@ -59,6 +59,7 @@ module.exports = ({ model, database }) => {
    */
   const findByEmail = async (...args) => await model
     .where('email', '==', args.email)
+    .limit(1)
     .get();
 
   /**

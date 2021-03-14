@@ -7,10 +7,6 @@ const {
   isNil, 
   pickBy 
 } = require('ramda');
-const linkForms = {
-  self: 'http://localhost:4000/api/organization/{id}'
-};
-
 const notNull = compose(complement(isNil));
 
 /**
@@ -24,19 +20,27 @@ const cleanData = (entity) => pickBy(notNull, entity);
  * @static
  * @returns {array}
  */
-const generateLinksForItem = (entityContext) => {
-	let host = 'http://localhost:4000';
+const generateLinksForItem = (entityContext, type, entityName) => {
+  const relations = require(`./${entityName}/relations.js`)
+  const namespace = type + 'Relations';
+  const itemRelations = relations[namespace];
+  let host = 'http://localhost:4000';
   let _list = [];
-  Object.keys(linkForms).forEach((keyRef) => {
-    if (linkForms[keyRef].includes('{id}')) {
-      linkForms[keyRef] = linkForms[keyRef].replace(/{id}/, entityContext.id);
-    }
-		if (linkForms[keyRef].includes('{fullhost}')) {
-			linkForms[keyRef] = linkForms[keyRef].replace(/{fullhost}/, host);
-		}
-    _list.push({
-      rel: [keyRef],
-      href: linkForms[keyRef]
+  itemRelations.forEach((relRef) => {
+    Object.keys(relRef).forEach((keyRef) => {
+      if (relRef[keyRef].includes('{id}')) {
+        relRef[keyRef] = relRef[keyRef].replace(/{id}/, entityContext.id);
+      }
+      if (relRef[keyRef].includes('{fullhost}')) {
+        relRef[keyRef] = relRef[keyRef].replace(/{fullhost}/, host);
+      }
+      if (relRef[keyRef].includes('{token}')) {
+        relRef[keyRef] = relRef[keyRef].replace(/{token}/, token);
+      }
+      _list.push({
+        rel: keyRef,
+        href: relRef[keyRef]
+      })
     })
   });
   return _list;
