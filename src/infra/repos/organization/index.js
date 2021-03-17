@@ -9,6 +9,10 @@ const { encryptPassword, comparePassword } = require('../../encryption');
 
 module.exports = ({ model, database }) => {
 
+  const getClass = () => ([]);
+  const getRel = () => ([]);
+  const getLinks = () => ([]);
+
   /**
    * @name getAll
    * @returns {object}
@@ -91,7 +95,10 @@ module.exports = ({ model, database }) => {
     findOne,
     securePassword,
     validatePassword,
-    destroy
+    destroy,
+    getClass,
+    getRel,
+    getLinks
   };
 };
 

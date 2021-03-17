@@ -16,6 +16,12 @@ const notNull = compose(complement(isNil));
 const cleanData = (entity) => pickBy(notNull, entity);
 
 /**
+ * @name generateRelations
+ * @returns {undefined}
+ */
+const generateRelations = () => ([]);
+
+/**
  * @function generateLinksForItem
  * @static
  * @returns {array}
@@ -69,10 +75,10 @@ const generateEntities = (repo) => {
         if (doc.exists) {
           let data = doc.data()
           return {
-            class: ['items collection'],
-            rel: [''],
-            properties: data,
-            links: []
+            //class: generateClassList(data.id),
+            //rel: generateRelations(data.id),
+            properties: data
+            //links: generateLinksForItem(data.id, 'item', 'user')
           };
         }
       });
@@ -83,6 +89,13 @@ const generateEntities = (repo) => {
  * @function generateActions
  * @static
  * @returns {array}
+ * @description
+ * Ok, so here we're basically scripting with CasperJS. The presumption is 
+ * that there will be a generic client through which we can automate browser 
+ * behaviors and platform capabilities (Cordova). We can think of hypermedia 
+ * controls as projections from rhetorical relations over a domain knowledge 
+ * graph that represents the plurality of connections or links in hypermedia 
+ * ensembles (differentiations of numerical and other kinds of identity).
  */
 const generateActions = (_itemForms, entity, entityName) => {
 	let host = `http://localhost:4000/api/${entityName}`;
@@ -107,8 +120,6 @@ const generateActions = (_itemForms, entity, entityName) => {
   });
   return _itemForms;
 };
-
-
 
 
 module.exports = {
