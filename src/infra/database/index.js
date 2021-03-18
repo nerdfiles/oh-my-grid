@@ -2,6 +2,8 @@
  * @module infrastructure/database/index
  */
 const firebase = require('../vendor/firebase');
+const mongo = require('../vendor/mongo');
+const bedquilt = require('../vendor/bedquilt');
 
 
 module.exports = ({ logger, config }) => {
@@ -12,7 +14,14 @@ module.exports = ({ logger, config }) => {
     return false;
   }
 
-  return firebase({ config, basePath: __dirname });
+  if (config.VENDOR.includes('firebase'))
+    return firebase({ config, basePath: __dirname });
+  else if (config.VENDOR.includes('mongo'))
+    return mongo({ config, basePath: __dirname });
+  else if (config.VENDOR.includes('bedquilt'))
+    return bedquilt({ config, basePath: __dirname });
+  else
+    return firebase({ config, basePath: __dirname });
 };
 
 // EOF

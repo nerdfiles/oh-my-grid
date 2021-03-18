@@ -22,6 +22,25 @@ const cleanData = (entity) => pickBy(notNull, entity);
 const generateRelations = () => ([]);
 
 /**
+ * @name generateLinksForList
+ * @returns {undefined}
+ */
+const generateLinksForList = (entityContext, type, entityName) => {
+
+  const relations = require(`./${entityName}/relations.js`)
+  const namespace = type + 'Relations';
+  const _relations = relations[namespace];
+  let host = 'http://localhost:4000';
+
+  for (relRef of _relations) {
+    console.log(relRef);
+  }
+
+  return [];
+ 
+};
+
+/**
  * @function generateLinksForItem
  * @static
  * @returns {array}
@@ -125,6 +144,7 @@ const generateActions = (_itemForms, entity, entityName) => {
 module.exports = {
   cleanData,
   generateLinksForItem,
+  generateLinksForList,
   generateClassList,
   generateActions,
   generateEntities

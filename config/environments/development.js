@@ -4,6 +4,7 @@
  */
 module.exports = {
   VERSION: process.env.APP_VERSION,
+  VENDOR: process.env.VENDOR,
   PORT: process.env.PORT || 4000,
   TIMEZONE: process.env.TIMEZONE,
   LOGGING: {

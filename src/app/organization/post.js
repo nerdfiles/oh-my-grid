@@ -25,20 +25,20 @@ module.exports = ({ organizationRepository, placeRepository }) => {
    */
   const create = ({ body }) => {
     return Promise.resolve()
-      .then(() => {
+      .then(async () => {
         const id = uuidv4();
         const entity = Object.assign({}, body, {
           id: id
         });
 
-        let actionsList = generateActions(itemForms, entity, 'organizations');
+        const actionsList = generateActions(itemForms, entity, 'organizations');
+        const classList = generateClassList();
+        const relatedEntities = await generateEntities(placeRepository);
 
         const organization = Organization(entity);
         return organizationRepository.create(organization)
           .then(async (entityRef) => {
-            let relatedEntities = await generateEntities(placeRepository);
-            let classList = generateClassList();
-            let linkRelations = generateLinksForItem(entityRef, 'item', 'organization');
+            const linkRelations = generateLinksForItem(entityRef, 'item', 'organization');
             return Object.assign({}, {
               class: classList,
               properties: entityRef,
