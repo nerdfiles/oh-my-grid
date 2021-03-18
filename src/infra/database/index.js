@@ -14,15 +14,18 @@ module.exports = ({ logger, config }) => {
     return false;
   }
 
-  if (config.VENDOR.includes('firebase'))
-    return firebase({ config, basePath: __dirname });
-  else if (config.VENDOR.includes('mongo'))
-    return mongo({ config, basePath: __dirname });
-  else if (config.VENDOR.includes('bedquilt'))
-    return bedquilt({ config, basePath: __dirname });
-  else
-    return firebase({ config, basePath: __dirname });
-
+  try {
+    if (config.VENDOR.includes('firebase'))
+      return firebase({ config, basePath: __dirname });
+    else if (config.VENDOR.includes('mongo'))
+      return mongo({ config, basePath: __dirname });
+    else if (config.VENDOR.includes('bedquilt'))
+      return bedquilt({ config, basePath: __dirname });
+    else
+      return firebase({ config, basePath: __dirname });
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 // EOF
