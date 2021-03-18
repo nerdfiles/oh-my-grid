@@ -22,6 +22,7 @@ module.exports = ({ logger, config }) => {
     return bedquilt({ config, basePath: __dirname });
   else
     return firebase({ config, basePath: __dirname });
+
 };
 
 // EOF
