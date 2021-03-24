@@ -21,9 +21,8 @@ const cleanData = (entity) => pickBy(notNull, entity);
  */
 const generateRelations = () => ([]);
 
-async function getL(repo, entityContext) {
+async function getLink(repo, entityContext) {
   let d = await repo.nextItem(entityContext);
-  console.log(d)
   return d;
 }
 
@@ -42,10 +41,10 @@ const generateLinksForList = async (entityContext, type, entityName, repo) => {
     for (const key in linkRelation) {
       if (linkRelation.hasOwnProperty('next')) {
         let relation = {};
-        let l = await getL(repo, entityContext);
-        if (l.length) {
+        let linkList = await getLink(repo, entityContext);
+        if (linkList.length) {
           relation.next = linkRelation.next
-            .replace('{nextId}', l[0].id)
+            .replace('{nextId}', linkList[0].id)
             .replace('{fullhost}', host);
           relationsList.push(relation);
         }
