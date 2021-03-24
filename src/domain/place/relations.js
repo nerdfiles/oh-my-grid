@@ -10,8 +10,8 @@ module.exports = {
   ],
   itemRelations: [
     { self: '{fullhost}/api/places/{id}' },
-    { prev: '{fullhost}/api/places/{id}/prev?id={prevId}' },
-    { next: '{fullhost}/api/places/{id}/next?id={nextId}' }
+    { prev: '{fullhost}/api/places/{prevId}' },
+    { next: '{fullhost}/api/places/{nextId}' }
   ],
   temporalRelations: [
     { meets: '' },

@@ -44,11 +44,9 @@ const generateLinksForList = async (entityContext, type, entityName, repo) => {
         let relation = {};
         let l = await getL(repo, entityContext);
         if (l.length) {
-          // @note why not simply link to the resource? the spirit of abstraction got us again!
           relation.next = linkRelation.next
             .replace('{nextId}', l[0].id)
-            .replace('{fullhost}', host)
-            .replace('{id}', entityContext.id);
+            .replace('{fullhost}', host);
           relationsList.push(relation);
         }
       }
