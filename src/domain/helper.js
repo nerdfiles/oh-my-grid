@@ -21,23 +21,48 @@ const cleanData = (entity) => pickBy(notNull, entity);
  */
 const generateRelations = () => ([]);
 
+async function getL(repo, entityContext) {
+  let d = await repo.nextItem(entityContext);
+  console.log(d)
+  return d;
+}
+
 /**
  * @name generateLinksForList
  * @returns {undefined}
  */
-const generateLinksForList = (entityContext, type, entityName) => {
+const generateLinksForList = async (entityContext, type, entityName, repo) => {
 
   const relations = require(`./${entityName}/relations.js`)
   const namespace = type + 'Relations';
   const _relations = relations[namespace];
   let host = 'http://localhost:4000';
-
-  for (relRef of _relations) {
-    console.log(relRef);
+  let relationsList = [];
+  for (const linkRelation of _relations) {
+    for (const key in linkRelation) {
+      if (linkRelation.hasOwnProperty('next')) {
+        let relation = {};
+        let l = await getL(repo, entityContext);
+        if (l.length) {
+          // @note why not simply link to the resource? the spirit of abstraction got us again!
+          relation.next = linkRelation.next
+            .replace('{nextId}', l[0].id)
+            .replace('{fullhost}', host)
+            .replace('{id}', entityContext.id);
+          relationsList.push(relation);
+        }
+      }
+      if (linkRelation.hasOwnProperty('self')) {
+        let relation = {};
+        relation.self = linkRelation['self']
+          .replace('{fullhost}', host)
+          .replace('{id}', entityContext.id);
+        relationsList.push(relation);
+      }
+    }
   }
 
-  return [];
- 
+  return relationsList;
 };
 
 /**

@@ -19,8 +19,8 @@ const User = t.struct({
   isDeleted: t.Number,
   createdBy: t.maybe(t.String),
   updatedBy: t.maybe(t.String),
-  createdAt: t.maybe(t.Date),
-  updatedAt: t.maybe(t.Date)
+  createdAt: t.maybe(t.String),
+  updatedAt: t.maybe(t.String)
 });
 
 

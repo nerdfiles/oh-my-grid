@@ -6,6 +6,7 @@
 const { v4: uuidv4 } = require('uuid');
 const { Place } = require('../../domain/place');
 const pryjs = require('pryjs');
+const { DateTime } = require('luxon');
 
 
 module.exports = ({ placeRepository, userRepository }) => {
@@ -17,12 +18,14 @@ module.exports = ({ placeRepository, userRepository }) => {
           let list = [];
           ref.forEach((d) => {
             list.push(d.data());
-          })
+          });
           return list[0];
         });
         const entity = Object.assign({}, body, {
           id: id,
-          ownerId: !body.ownerId ? foundAdmin.id : undefined
+          ownerId: !body.ownerId ? foundAdmin.id : undefined,
+          createdAt: DateTime.now().toString(),
+          updatedAt: DateTime.now().toString()
         });
         const place = Place(entity);
         return placeRepository.create(place);

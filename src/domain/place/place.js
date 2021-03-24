@@ -11,9 +11,8 @@ const Place = t.struct({
   latitude: t.Number,
   longitude: t.Number,
   ownerId: t.maybe(t.String),
-  addressId: t.maybe(t.String),
-  createdAt: t.maybe(t.Date),
-  updatedAt: t.maybe(t.Date)
+  createdAt: t.maybe(t.String),
+  updatedAt: t.maybe(t.String)
 });
 
 

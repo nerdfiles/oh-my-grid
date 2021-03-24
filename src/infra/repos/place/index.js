@@ -26,6 +26,42 @@ module.exports = ({ model, database }) => {
       .then((docRefs) => database.firestore.getAll(...docRefs));
 
   /**
+   * @name prev
+   * @returns {undefined}
+   */
+  const prev = async (...args) => {
+    let payload = args[0];
+    let docRef = model.doc(payload.id);
+    let snapshot = await docRef.get();
+    let last = snapshot.docs[snapshot.docs.length - 1];
+    return last.data();
+  };
+
+  /**
+   * @name next
+   * @returns {undefined}
+   */
+  const nextItem = async (...args) => {
+    let payload = args[0];
+    const docRef = model.doc(payload.id);
+    const snapshot = (await docRef.get()).data();
+    const start = await model
+      .orderBy('createdAt')
+      .startAfter(snapshot.createdAt)
+      //.limitToLast(1)
+      //.startAt(snapshot)
+      //.offset(1)
+      .limit(1)
+      .get();
+    let list = [];
+    start.forEach((d) => {
+      list.push(d.data());
+    });
+    return list;
+
+  };
+
+  /**
    * @name create
    * @returns {object}
    */
@@ -73,7 +109,9 @@ module.exports = ({ model, database }) => {
     update,
     findById,
     findOne,
-    destroy
+    destroy,
+    nextItem,
+    prev
   };
 };
 
