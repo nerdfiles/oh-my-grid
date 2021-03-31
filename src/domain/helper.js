@@ -112,17 +112,25 @@ const generateClassList = (context) => (['organization']);
 const generateEntities = (repo) => {
   return repo.getAll()
     .then((documentSnapshots) => {
-      return documentSnapshots.map((doc) => {
-        if (doc.exists) {
-          let data = doc.data()
-          return {
-            //class: generateClassList(data.id),
-            //rel: generateRelations(data.id),
-            properties: data
-            //links: generateLinksForItem(data.id, 'item', 'user')
-          };
-        }
-      });
+      let list = [];
+      for (let doc of documentSnapshots) {
+        consol.dir(doc);
+        let data = doc.data();
+        consol.log(data);
+        list.push(data);
+      }
+      return list;
+      // return documentSnapshots.map((doc) => {
+      //   if (doc.exists) {
+      //     let data = doc.data()
+      //     return {
+      //       //class: generateClassList(data.id),
+      //       //rel: generateRelations(data.id),
+      //       properties: data
+      //       //links: generateLinksForItem(data.id, 'item', 'user')
+      //     };
+      //   }
+      // });
   });
 };
 
