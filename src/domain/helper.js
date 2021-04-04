@@ -114,9 +114,9 @@ const generateEntities = (repo) => {
     .then((documentSnapshots) => {
       let list = [];
       for (let doc of documentSnapshots) {
-        consol.dir(doc);
+        console.dir(doc);
         let data = doc.data();
-        consol.log(data);
+        console.log(data);
         list.push(data);
       }
       return list;

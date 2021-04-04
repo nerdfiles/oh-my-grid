@@ -9,7 +9,7 @@ const compression = require('compression');
 const { Router } = require('express');
 const { partialRight } = require('ramda');
 
-const { createController } = require('../utils');
+const { createController, createAction } = require('../utils');
 const httpLogger = require('../middleware/http-logger');
 const errorHandler = require('../middleware/error-handler');
 
@@ -54,6 +54,7 @@ module.exports = ({ config, logger, database }) => {
   apiRouter.use('/', createController('index'));
   apiRouter.use('/auth', createController('auth').router);
   apiRouter.use('/users', createController('user').router);
+  apiRouter.use('/users/:id/action', createAction('transferAction').router);
   apiRouter.use('/organizations', createController('organization').router);
   apiRouter.use('/token', createController('token').router);
   apiRouter.use('/places', createController('place').router);

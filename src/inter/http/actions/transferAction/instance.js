@@ -1,5 +1,5 @@
 /**
- * @module interfaces/http/resources/user/instance
+ * @module interfaces/http/actions/transferAction/instance
  * @description
  * Should transitions be a containerized module?
  */
