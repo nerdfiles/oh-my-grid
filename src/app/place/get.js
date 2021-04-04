@@ -22,7 +22,7 @@ module.exports = ({ placeRepository }) => {
             let properties = doc.data() || {};
             let place = Place(properties);
             let links = await generateLinksForList(place, 'item', 'place', placeRepository);
-            let actions = generateActions(itemForms, doc, 'places');
+            let actions = generateActions(itemForms, place, 'places');
             let props = Object.assign({}, place, {});
 
             let hypermediaResponse = {

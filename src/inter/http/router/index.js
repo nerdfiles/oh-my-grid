@@ -54,6 +54,12 @@ module.exports = ({ config, logger, database }) => {
   apiRouter.use('/', createController('index'));
   apiRouter.use('/auth', createController('auth').router);
   apiRouter.use('/users', createController('user').router);
+  // apiRouter.use('/nodes', createController('nodes').router);
+  // apiRouter.use('/miners', createController('miners').router);
+  // apiRouter.use('/validators', createController('validators').router);
+  // apiRouter.use('/campaigns', createController('campaigns').router);
+  // apiRouter.use('/appliances', createController('appliances').router);
+  // apiRouter.use('/doors', createController('doors').router);
   apiRouter.use('/users/:id/action', createAction('transferAction').router);
   apiRouter.use('/organizations', createController('organization').router);
   apiRouter.use('/token', createController('token').router);
