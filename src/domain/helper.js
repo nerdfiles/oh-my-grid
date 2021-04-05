@@ -102,7 +102,13 @@ const generateLinksForItem = (entityContext, type, entityName) => {
  * @static
  * @returns {array}
  */
-const generateClassList = (context) => (['organization']);
+const generateClassList = async (context) => {
+  let classList = await repo.getAll();
+  for (let classRef of classList) {
+    console.log(classRef);
+  }
+  return (['organization']);
+}
 
 /**
  * @function generateEntities
@@ -146,21 +152,21 @@ const generateEntities = (repo) => {
  * graph that represents the plurality of connections or links in hypermedia 
  * ensembles (differentiations of numerical and other kinds of identity).
  */
-const generateActions = (_itemForms, entity, entityName) => {
+const generateActions = (_itemForms, entityContext, entityName) => {
 	let host = `http://localhost:4000/api/${entityName}`;
-  _itemForms.forEach(function (itemRef, key) {
+  _itemForms.forEach(function (itemRef) {
     Object.keys(itemRef).forEach(function (keyRef) {
       if (itemRef[keyRef].includes('{id}')) {
-        itemRef[keyRef] = itemRef[keyRef].replace(/{id}/, entity.id);
+        itemRef[keyRef] = itemRef[keyRef].replace(/{id}/, entityContext.id);
       }
       if (itemRef[keyRef].includes('{fullhost}')) {
         itemRef[keyRef] = itemRef[keyRef].replace(/{fullhost}/, host);
       }
       if (itemRef.hasOwnProperty('properties')) {
-        itemRef.properties.forEach((p) => {
-          Object.keys(p).forEach((k) => {
-            if (p[k].includes('{status}')) {
-              p[k] = p[k].replace(/{status}/, 'pending');
+        itemRef.properties.forEach((propRef) => {
+          Object.keys(propRef).forEach((keyRef) => {
+            if (propRef[keyRef].includes('{status}')) {
+              propRef[keyRef] = propRef[keyRef].replace(/{status}/, 'pending');
             }
           });
         });

@@ -6,7 +6,8 @@ module.exports = {
   collectionRelations: [
     { self: '{fullhost}/api/places' },
     { prev: '{fullhost}/api/places?page={page}' },
-    { next: '{fullhost}/api/places?page={page}' }
+    { next: '{fullhost}/api/places?page={page}' },
+    { "users/places": '{fullhost}/api/users/places' }
   ],
   itemRelations: [
     { self: '{fullhost}/api/places/{id}' },

@@ -38,7 +38,7 @@ module.exports = ({
  *         type: string
  *         format: uuid
  */
-  router.use(auth.authenticate());
+  //router.use(auth.authenticate());
 
   router
     .get('/', (req, res) => {
