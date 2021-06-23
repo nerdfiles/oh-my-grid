@@ -1,11 +1,11 @@
 /**
  * @module domain/transferAction/index
  */
-const User = require('./transferAction');
+const TransferAction = require('./transferAction');
 
 
 module.exports = {
-  User
+  TransferAction
 };
 
 // EOF

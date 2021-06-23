@@ -1,5 +1,7 @@
 /**
  * @module domain/helper
+ * @description
+ * Tools for translating, cleaning and orienting data responses.
  */
 const { 
   complement, 
@@ -14,6 +16,33 @@ const notNull = compose(complement(isNil));
  * @returns {undefined}
  */
 const cleanData = (entity) => pickBy(notNull, entity);
+
+/**
+ * @function mediate
+ * @inner
+ * @param {object} context - A context object by which to determine an actions 
+ * list to choose.
+ * @returns {object} A hypermediated object for response.
+ */
+const mediate = (contextConfiguration) => {
+  console.log(contextConfiguration);
+  return async (entity) => {
+    const actionsList = generateActions(itemForms, entity, 'organizations');
+    const classList = generateClassList();
+    const relatedEntities = await generateEntities(placeRepository);
+    const organization = Organization(entity);
+    return (entityRef) => {
+      const linkRelations = generateLinksForItem(entityRef, 'item', 'organization');
+      return Object.assign({}, {
+        class: classList,
+        properties: entityRef,
+        entities: relatedEntities,
+        actions: actionsList,
+        links: linkRelations
+      });
+    };
+  };
+};
 
 /**
  * @name generateRelations
@@ -183,7 +212,8 @@ module.exports = {
   generateLinksForList,
   generateClassList,
   generateActions,
-  generateEntities
+  generateEntities,
+  mediate
 };
 
 // EOF

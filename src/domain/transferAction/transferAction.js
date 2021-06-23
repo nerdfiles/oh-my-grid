@@ -19,6 +19,31 @@ const TransferAction = t.struct({
   updatedAt: t.maybe(t.String)
 });
 
+const agentId = Object.assign({}, t.maybe(t.String), {
+  type: 'string'
+});
+
+Object.assign(TransferAction, {
+  post: {
+    apiDoc: {
+      properties: {
+        name: {
+          type: 'string'
+        },
+        agentId: agentId,
+        objectId: {
+          type: 'string'
+        },
+        fromLocation: {
+          type: 'string'
+        },
+        toLocation: {
+          type: 'string'
+        }
+      }
+    }
+  }
+});
 
 module.exports = compose(
   cleanData,

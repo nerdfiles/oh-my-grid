@@ -22,7 +22,7 @@ module.exports = {
   rhetoricalRelations: [
     { continuation: '{fullhost}/api/organizations/continuation?eventToken={eventToken}' },
     { narration: '{fullhost}/api/organizations/narration?eventToken={eventToken}' },
-    { elaboration: '{fullhost/api/organizations/elaboration?eventToken={eventToken}' }
+    { elaboration: '{fullhost}/api/organizations/elaboration?eventToken={eventToken}' }
   ],
   attitudinalRelations: [
     { thinks: '{fullhost}/api/organization/{id}/thinks?eventToken={eventToken}' },

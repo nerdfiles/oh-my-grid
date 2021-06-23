@@ -7,17 +7,19 @@
  */
 const { v4: uuidv4 } = require('uuid');
 const { Organization } = require('../../domain/organization');
-const { itemForms } = require('../../domain/organization/transitions');
+const { itemForms } = require('../../domain/organization/transitions.js');
 const { itemRelations } = require('../../domain/organization/relations');
 
 const {
   generateLinksForItem,
   generateActions,
   generateClassList,
-  generateEntities
+  generateEntities,
+  mediate
 } = require('../../domain/helper.js');
 
 module.exports = ({ organizationRepository, placeRepository }) => {
+
   /**
    * @function create
    * @memberof Organization
@@ -30,28 +32,18 @@ module.exports = ({ organizationRepository, placeRepository }) => {
         const entity = Object.assign({}, body, {
           id: id
         });
-
-        const actionsList = generateActions(itemForms, entity, 'organizations');
-        const classList = generateClassList();
-        const relatedEntities = await generateEntities(placeRepository);
-
-        const organization = Organization(entity);
         return organizationRepository.create(organization)
           .then(async (entityRef) => {
-            const linkRelations = generateLinksForItem(entityRef, 'item', 'organization');
-            return Object.assign({}, {
-              class: classList,
-              properties: entityRef,
-              entities: relatedEntities,
-              actions: actionsList,
-              links: linkRelations
-            });
+            var contextConfiguration = {};
+            var output = mediate(contextConfiguration)(entity)(entityRef);
+            return output;
           });
       })
       .catch((error) => {
         console.error(error);
         throw new Error(error);
       });
+
   };
 
   return {

@@ -14,6 +14,9 @@ module.exports = {
     { prev: '{fullhost}/api/places/{prevId}' },
     { next: '{fullhost}/api/places/{nextId}' }
   ],
+  mathematicalRelations: [
+    { '1+2': '{{fullhost}}/api/mathematical-objects?logic=K5' }
+  ],
   temporalRelations: [
     { meets: '' },
     { metBy: '' },

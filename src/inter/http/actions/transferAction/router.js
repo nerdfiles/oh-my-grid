@@ -81,20 +81,30 @@ module.exports = ({
  *       400:
  *         $ref: '#/responses/BadRequest'
  */
+  const POST = (req, res) => {
+    postUseCase
+      .create({ body: req.body })
+      .then(data => {
+        res.status(Status.OK).json(Success(data));
+      })
+      .catch((error) => {
+        logger.error(error);
+        res
+          .status(Status.BAD_REQUEST)
+          .json(Fail(error.message));
+      });
+  };
+
+  const TransferAction = require('../../../../domain/transferAction');
+
+  // try {
+  //   POST.apiDoc = TransferAction.post.apiDoc;
+  // } catch (err) {
+  //   console.error(err);
+  // }
+
   router
-    .post('/', (req, res) => {
-      postUseCase
-        .create({ body: req.body })
-        .then(data => {
-          res.status(Status.OK).json(Success(data));
-        })
-        .catch((error) => {
-          logger.error(error);
-          res
-            .status(Status.BAD_REQUEST)
-            .json(Fail(error.message));
-        });
-    });
+    .post('/', POST);
 
   return router;
 };

@@ -65,6 +65,11 @@ module.exports = ({ config, logger, database }) => {
   apiRouter.use('/organizations', createController('organization').router);
   apiRouter.use('/token', createController('token').router);
   apiRouter.use('/places', createController('place').router);
+  apiRouter.use('/entities\::id', (req, res, next) => {
+    return res.status(200).json({
+      status: 200
+    });
+  });
 
   router.use(`/api`, apiRouter);
   router.use(`/api/${config.VERSION}`, apiRouter);

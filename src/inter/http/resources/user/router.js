@@ -13,6 +13,7 @@ module.exports = ({
   response: { Success, Fail }
 }) => {
   const router = Router();
+  //router.use(auth.authenticate());
 
 /**
  * @swagger
@@ -38,8 +39,6 @@ module.exports = ({
  *         type: string
  *         format: uuid
  */
-  //router.use(auth.authenticate());
-
   router
     .get('/', (req, res) => {
       getUseCase.all().then(function (data) {
@@ -51,7 +50,7 @@ module.exports = ({
           .status(Status.BAD_REQUEST)
           .json(Fail(error.message));
       });
-    })
+    });
 
 /**
  * @swagger
