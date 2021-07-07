@@ -1,7 +1,9 @@
 /**
  * @module domain/organization/relations
- * Think of rhetorical relations as templates with associated tokens.
+ * @description Think of rhetorical relations as templates with associated 
+ * tokens.
  */
+
 module.exports = {
   collectionRelations: [
     { self: '{fullhost}/api/organizations' },
