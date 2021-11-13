@@ -21,7 +21,7 @@
  * our ontologies (OWL-Time, etc.), structures (ODRL, etc.), phenomenal 
  * thought (), and teleonomic designs. There is no private proof.
  *
- * Welcome to the realm of noise.
+ * Welcome to the realm of discoverable noise.
  */
 
 module.exports = ({ organizationRepository }) => {
