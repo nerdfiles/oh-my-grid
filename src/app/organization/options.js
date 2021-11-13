@@ -22,6 +22,13 @@
  * thought (), and teleonomic designs. There is no private proof.
  *
  * Welcome to the realm of discoverable noise.
+ *
+ * HTTP OPTIONS can hand between categories of API metacomputational tasks 
+ * through link relations on resources representing the k8s, consul, etc. 
+ * metaresource stacks, annotated with downward causal relations determined 
+ * from perceptual and paradigmatic relations preprogrammed to the hyperschema
+ * of the resource in their gradient of semioticity, medium specificity and 
+ * metastability of holo-entropy features in semantics-driven design.
  */
 
 module.exports = ({ organizationRepository }) => {
