@@ -29,6 +29,9 @@
  * from perceptual and paradigmatic relations preprogrammed to the hyperschema
  * of the resource in their gradient of semioticity, medium specificity and 
  * metastability of holo-entropy features in semantics-driven design.
+ *
+ * Think resthooks.org expanding on SUBSCRIBE/UNSUBSCRIBE; we should have 
+ * been doing this stuff all along.
  */
 
 module.exports = ({ organizationRepository }) => {
