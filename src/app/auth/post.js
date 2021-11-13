@@ -7,6 +7,7 @@
  */
 const { v4: uuidv4 } = require('uuid');
 const { User } = require('../../domain/user');
+const { DateTime } = require('luxon');
 
 
 module.exports = ({ userRepository }) => {
@@ -23,8 +24,8 @@ module.exports = ({ userRepository }) => {
           id: id,
           password
         });
-        entity.createdAt = new Date();
-        entity.updatedAt = new Date();
+        entity.createdAt = DateTime.now();
+        entity.updatedAt = DateTime.now();
         const user = User(entity);
         return userRepository.create(user);
       })

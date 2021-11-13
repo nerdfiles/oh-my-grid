@@ -23,6 +23,8 @@ const cleanData = (entity) => pickBy(notNull, entity);
  * @param {object} context - A context object by which to determine an actions 
  * list to choose.
  * @returns {object} A hypermediated object for response.
+ * @description This needs to be a parametric polymorphic function; or a "task-
+ * based interface"; take your pick.
  */
 const mediate = (contextConfiguration) => {
   console.log(contextConfiguration);
@@ -215,5 +217,7 @@ module.exports = {
   generateEntities,
   mediate
 };
+
+
 
 // EOF

@@ -6,17 +6,17 @@
 const { itemForms } = require('../../domain/organization/transitions');
 const { Organization } = require('../../app/organization');
 
-module.exports = ({ organizationRepository }) => {
+const transitionItem = () => {
+  return Promise
+    .resolve()
+    .then(() => {
+      return itemForms.map((itemRef) => {
+        return itemRef;
+      });
+    })
+};
 
-  const transitionItem = () => {
-    return Promise
-      .resolve()
-      .then(() => {
-        return itemForms.map((itemRef) => {
-          return itemRef;
-        });
-      })
-  };
+module.exports = ({ organizationRepository }) => {
 
   const all = () => {
     return Promise
@@ -34,6 +34,17 @@ module.exports = ({ organizationRepository }) => {
       .catch(error => {
         throw new Error(error);
       });
+  };
+
+  const context = () => {
+    return Promise
+      .resolve()
+      .then(() => {
+        return {};
+      })
+      .catch(error => {
+        throw new Error(error);
+      })
   };
 
   return {

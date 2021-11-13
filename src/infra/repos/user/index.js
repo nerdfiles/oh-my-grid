@@ -22,7 +22,27 @@ module.exports = ({ model, database }) => {
    * @returns {object}
    */
   const bulkCreate = async (...args) => {
-    return await model;
+
+    const bulkWriter = database.bulkWriter();
+    let collectionName = '';
+
+    bulkWriter.create(firestore.collection(collectionName), {})
+      .then(res => {
+      });
+
+    await bulkWriter.close().then(() => {
+    });
+  };
+
+  const construct = async (...args) => {
+    let payload = args[0];
+    return await model.create(payload)
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        return error;
+      });
   };
 
   /**

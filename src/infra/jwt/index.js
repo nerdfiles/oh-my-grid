@@ -22,6 +22,7 @@ module.exports = ({ config }) => ({
     const opt = Object.assign({}, options, { expiresIn: '1h' });
     return jwt.sign(payload, config.AUTH_SECRET, opt);
   },
+
   /**
    * @function verify
    * @inner
@@ -31,6 +32,7 @@ module.exports = ({ config }) => ({
     const opt = Object.assign({}, options);
     return jwt.verify(token, config.AUTH_SECRET, opt);
   },
+
   /**
    * @function decode
    * @inner

@@ -22,6 +22,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContentLayoutComponent,
     NavComponent,
     FooterComponent,
+    //ProfileLayoutComponent,
+    //CommentsLayoutComponent,
+    //ActivityLayoutComponent,
+    //AdminLayoutComponent,
     AuthLayoutComponent
   ],
   imports: [

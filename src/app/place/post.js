@@ -16,9 +16,12 @@ module.exports = ({ placeRepository, userRepository }) => {
         const id = uuidv4();
         const foundAdmin = await userRepository.findOneAdmin().then((ref) => {
           let list = [];
+
           ref.forEach((d) => {
-            list.push(d.data());
+            const localData = d.data();
+            list.push(localData);
           });
+
           return list[0];
         });
         const entity = Object.assign({}, body, {

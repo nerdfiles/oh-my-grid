@@ -3,7 +3,7 @@
  * @description
  * Repo/methods for places.
  */
-const { toEntity } = require('./transform');
+const { toEntity } = require('./transform.js');
 
 
 module.exports = ({ model, database }) => {

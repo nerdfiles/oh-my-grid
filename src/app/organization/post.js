@@ -8,7 +8,7 @@
 const { v4: uuidv4 } = require('uuid');
 const { Organization } = require('../../domain/organization');
 const { itemForms } = require('../../domain/organization/transitions.js');
-const { itemRelations } = require('../../domain/organization/relations');
+const { itemRelations } = require('../../domain/organization/relations.js');
 
 const {
   generateLinksForItem,
@@ -19,12 +19,12 @@ const {
 } = require('../../domain/helper.js');
 
 module.exports = ({ organizationRepository, placeRepository }) => {
-
   /**
    * @function create
    * @memberof Organization
    * @returns {undefined}
    */
+
   const create = ({ body }) => {
     return Promise.resolve()
       .then(async () => {
@@ -32,10 +32,12 @@ module.exports = ({ organizationRepository, placeRepository }) => {
         const entity = Object.assign({}, body, {
           id: id
         });
+        const organization = Organization(entity);
+
         return organizationRepository.create(organization)
           .then(async (entityRef) => {
-            var contextConfiguration = {};
-            var output = mediate(contextConfiguration)(entity)(entityRef);
+            const contextConfiguration = {};
+            const output = mediate(contextConfiguration)(entity)(entityRef);
             return output;
           });
       })
@@ -43,7 +45,6 @@ module.exports = ({ organizationRepository, placeRepository }) => {
         console.error(error);
         throw new Error(error);
       });
-
   };
 
   return {
