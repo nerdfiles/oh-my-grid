@@ -17,7 +17,7 @@ module.exports = ({ placeRepository }) => {
       .resolve()
       .then(() => placeRepository.getAll()
         .then(async (documentSnapshots) => {
-          let m = [];
+          let dynamicList = [];
           for (const doc of documentSnapshots) {
             let properties = doc.data() || {};
             let place = Place(properties);
@@ -34,10 +34,10 @@ module.exports = ({ placeRepository }) => {
             };
 
             if (doc.exists) {
-              m.push(hypermediaResponse);
+              dynamicList.push(hypermediaResponse);
             }
           }
-          return m;
+          return dynamicList;
           // return documentSnapshots.map((doc) => {
           //   let properties = doc.data() || {};
           //   let place = Place(properties);

@@ -1,7 +1,6 @@
 /**
- * @module infrastructure/encryption/index
- * @description
- * Salt and compare passwords, etc.
+ * @name infrastructure/encryption/index
+ * @module infrastructure
  */
 const bcrypt = require('bcrypt');
 
