@@ -72,9 +72,14 @@ exports.forms = {
 	],
   templates: [
     {
+      id: "{{cuid()}}",
+      name: "$ yuml -c {config.json} topography.png",
+      href: "https://example.org/"
+    },
+    {
       id: "{{uuidv4()}}",
       name: "$ yuml -c {config.json} cqrs_etc.png",
-      href: "https://example.org/",
+      href: "https://example.org/"
     }
   ],
 	itemForms: [
