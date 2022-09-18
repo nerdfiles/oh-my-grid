@@ -1,8 +1,8 @@
 /**
  * @module interfaces/http/actions/transferAction/router
  */
-const Status = require('http-status');
-const { Router } = require('express');
+const Status = require('http-status')
+const { Router } = require('express')
 
 
 module.exports = ({
@@ -12,7 +12,7 @@ module.exports = ({
   auth,
   response: { Success, Fail }
 }) => {
-  const router = Router();
+  const router = Router()
 
 /**
  * @swagger
@@ -42,14 +42,14 @@ module.exports = ({
   router
     .get('/', (req, res) => {
       getUseCase.all().then(function (data) {
-        res.status(Status.OK).json(Success(data));
+        res.status(Status.OK).json(Success(data))
       })
       .catch((error) => {
-        logger.error(error);
+        logger.error(error)
         res
           .status(Status.BAD_REQUEST)
-          .json(Fail(error.message));
-      });
+          .json(Fail(error.message))
+      })
     })
 
 /**
@@ -85,28 +85,28 @@ module.exports = ({
     postUseCase
       .create({ body: req.body })
       .then(data => {
-        res.status(Status.OK).json(Success(data));
+        res.status(Status.OK).json(Success(data))
       })
       .catch((error) => {
-        logger.error(error);
+        logger.error(error)
         res
           .status(Status.BAD_REQUEST)
-          .json(Fail(error.message));
-      });
-  };
+          .json(Fail(error.message))
+      })
+  }
 
-  const TransferAction = require('../../../../domain/transferAction');
+  const TransferAction = require('../../../../domain/transferAction')
 
   // try {
-  //   POST.apiDoc = TransferAction.post.apiDoc;
+  //   POST.apiDoc = TransferAction.post.apiDoc
   // } catch (err) {
-  //   console.error(err);
+  //   console.error(err)
   // }
 
   router
-    .post('/', POST);
+    .post('/', POST)
 
-  return router;
-};
+  return router
+}
 
 // EOF

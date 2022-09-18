@@ -7,8 +7,13 @@
  */
 const { Place } = require('../../domain/place');
 
-
 module.exports = ({ placeRepository }) => {
+
+  /**
+   * @name update
+   * @description
+   * @param {}
+   */
   const update = ({ id, body }) => {
     return new Promise(async (resolve, reject) => {
       try {

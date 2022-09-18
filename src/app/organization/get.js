@@ -3,21 +3,25 @@
  * @description
  * Get all organizations.
  */
-const { itemForms } = require('../../domain/organization/transitions');
-const { Organization } = require('../../app/organization');
+const { itemForms } = require('../../domain/organization/transitions')
+// const { Organization } = require('../../app/organization')
 
 const transitionItem = () => {
   return Promise
     .resolve()
     .then(() => {
       return itemForms.map((itemRef) => {
-        return itemRef;
-      });
+        return itemRef
+      })
     })
-};
+}
 
 module.exports = ({ organizationRepository }) => {
 
+  /**
+   * @name all.
+   * @description
+   */
   const all = () => {
     return Promise
       .resolve()
@@ -26,30 +30,34 @@ module.exports = ({ organizationRepository }) => {
           .then((documentSnapshots) => {
             return documentSnapshots.map((doc) => {
               if (doc.exists) {
-                return doc.data();
+                return doc.data()
               }
-            });
-          });
+            })
+          })
       })
       .catch(error => {
-        throw new Error(error);
-      });
-  };
+        throw new Error(error)
+      })
+  }
 
+  /**
+   * context.
+   * @description
+   */
   const context = () => {
     return Promise
       .resolve()
       .then(() => {
-        return {};
+        return {}
       })
       .catch(error => {
-        throw new Error(error);
+        throw new Error(error)
       })
-  };
+  }
 
   return {
     all
-  };
-};
+  }
+}
 
 // EOF

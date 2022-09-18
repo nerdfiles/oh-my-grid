@@ -10,6 +10,12 @@ const { DateTime } = require('luxon');
 
 
 module.exports = ({ placeRepository, userRepository }) => {
+
+  /**
+   * @name create
+   * @description
+   * @param {}
+   */
   const create = ({ body }) => {
     return Promise.resolve()
       .then(async () => {
