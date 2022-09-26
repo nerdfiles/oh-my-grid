@@ -5,10 +5,9 @@
  * @description
  * POST for auth.
  */
-const { v4: uuidv4 } = require('uuid');
-const { User } = require('../../domain/user');
-const { DateTime } = require('luxon');
-
+const { v4: uuidv4 } = require('uuid')
+const { User } = require('../../domain/user')
+const { DateTime } = require('luxon')
 
 module.exports = ({ userRepository }) => {
   /**
@@ -18,25 +17,25 @@ module.exports = ({ userRepository }) => {
   const register = ({ body }) => {
     return Promise.resolve()
       .then(() => {
-        const password = userRepository.securePassword(body) || 'test';
-        const id = uuidv4();
+        const password = userRepository.securePassword(body) || 'test'
+        const id = uuidv4()
         const entity = Object.assign({}, body, {
           id: id,
           password
-        });
-        entity.createdAt = DateTime.now();
-        entity.updatedAt = DateTime.now();
-        const user = User(entity);
-        return userRepository.create(user);
+        })
+        entity.createdAt = DateTime.now()
+        entity.updatedAt = DateTime.now()
+        const user = User(entity)
+        return userRepository.create(user)
       })
       .catch((error) => {
-        throw new Error(error);
-      });
-  };
+        throw new Error(error)
+      })
+  }
 
   return {
     register
-  };
-};
+  }
+}
 
 // EOF

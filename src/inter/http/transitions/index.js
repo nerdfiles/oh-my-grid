@@ -1,9 +1,9 @@
 /**
- * @module interfaces/http/transitions/index
- * @author mamund
+ * @filepath ./src/inter/http/transitions/index.js
+ * @module interfaces/http/transitions
+ * @author mamund <mamund@gmail.com>
  * @created 2020-02-01
- * @description 
- * DARRT Framework: transitions
+ * @description # DARRT Framework Transitions
  */
 // page- and item-level forms
 exports.forms = {

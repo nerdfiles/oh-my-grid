@@ -3,8 +3,8 @@
  * @description
  * Should transitions be a containerized module?
  */
-const container = require('../../../../container');
-const { post, get } = require('../../../../app/organization');
+const container = require('../../../../container')
+const { post, get } = require('../../../../app/organization')
 
 
 module.exports = () => {
@@ -13,14 +13,14 @@ module.exports = () => {
       organizationRepository,
       placeRepository
     }
-  } = container.cradle;
+  } = container.cradle
 
-  const postUseCase = post({ organizationRepository, placeRepository });
-  const getUseCase = get({ organizationRepository });
+  const postUseCase = post({ organizationRepository, placeRepository })
+  const getUseCase = get({ organizationRepository })
 
   return {
     postUseCase,
     getUseCase
-  };
-};
+  }
+}
 

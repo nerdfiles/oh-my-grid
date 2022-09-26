@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/Users/nerdfiles/Projects/oh-my-grid/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+AnonymousClassc939ecc20101	./src/app/place/delete/index.js	/^      .then(() => placeRepository.update({$/;"	c
+AnonymousClassc939ecc20201	./src/app/place/delete/index.js	/^      }, {$/;"	c
+id	./src/app/place/delete/index.js	/^        where: { id }$/;"	M	class:AnonymousClassc939ecc20201.where
+isDeleted	./src/app/place/delete/index.js	/^        isDeleted: 1$/;"	p	class:AnonymousClassc939ecc20101
+occasion	./src/app/place/delete/index.js	/^const occasion = (id) => {$/;"	C
+placeRepository	./src/app/place/delete/index.js	/^const remove = ({ placeRepository }) => {$/;"	M	class:AnonymousClassc939ecc20301
+repo	./src/app/place/delete/index.js	/^  const repo = dispatch(placeRepository)$/;"	C
+where	./src/app/place/delete/index.js	/^        where: { id }$/;"	p	class:AnonymousClassc939ecc20201

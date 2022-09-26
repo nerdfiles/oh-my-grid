@@ -1,9 +1,9 @@
 /**
  * @module interfaces/http/resources/organization/index
  */
-const container = require('../../../../container');
-const instance = require('./instance');
-const router = require('./router.js');
+const container = require('../../../../container')
+const instance = require('./instance')
+const router = require('./router.js')
 
 
 module.exports = () => {
@@ -11,8 +11,8 @@ module.exports = () => {
     logger, 
     response: { Success, Fail }, 
     auth 
-  } = container.cradle;
-  const app = instance();
+  } = container.cradle
+  const app = instance()
 
   return {
     app,
@@ -22,7 +22,7 @@ module.exports = () => {
       response: { Success, Fail },
       ...app
     })
-  };
-};
+  }
+}
 
 // EOF
